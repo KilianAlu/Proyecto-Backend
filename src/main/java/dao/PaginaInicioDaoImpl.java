@@ -10,7 +10,7 @@ public class PaginaInicioDaoImpl implements PaginaInicioDao {
 	PaginaInicioJpaSpring pagina;
 	@Override
 	public String recuperarAboutUs() {
-		return null;
+		return pagina.getAboutUs();
 	}
 
 	@Override

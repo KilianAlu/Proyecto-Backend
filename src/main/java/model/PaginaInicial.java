@@ -13,6 +13,11 @@ import javax.persistence.*;
 public class PaginaInicial implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
+	@SequenceGenerator(name="PAGINAINICIAL_ID_GENERATOR" )
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="PAGINAINICIAL_ID_GENERATOR")
+	private int id;
+
 	@Lob
 	private String aboutUs;
 
@@ -20,6 +25,14 @@ public class PaginaInicial implements Serializable {
 	private String contacto;
 
 	public PaginaInicial() {
+	}
+
+	public int getId() {
+		return this.id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getAboutUs() {

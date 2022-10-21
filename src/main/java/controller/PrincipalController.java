@@ -20,7 +20,7 @@ public class PrincipalController {
 	PaginaInicioService service;
 	@GetMapping(value="AboutUs",produces=MediaType.APPLICATION_JSON_VALUE)
 	public String aboutUs() {
-		return;
+		return service.aboutUs();
 		
 	}
 	/*
