@@ -1,9 +1,15 @@
 package service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 
 import dao.PaginaInicioDao;
+import model.PaginaInicial;
 
+@Component
 public class PaginaInicioServiceImpl implements PaginaInicioService{
 
 	@Autowired
@@ -18,6 +24,12 @@ public class PaginaInicioServiceImpl implements PaginaInicioService{
 	public String contacto() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<PaginaInicial> pruebaService() {
+		// TODO Auto-generated method stub
+		return Dao.pruebaDao();
 	}
 
 }
