@@ -8,7 +8,7 @@ import model.PaginaInicial;
 
 @Service
 public interface PaginaInicioService {
-	String aboutUs();
-	String contacto();
+//	String aboutUs();
+//	String contacto();
 	List<PaginaInicial> pruebaService();
 }

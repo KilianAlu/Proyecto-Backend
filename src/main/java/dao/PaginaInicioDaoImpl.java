@@ -12,16 +12,12 @@ public class PaginaInicioDaoImpl implements PaginaInicioDao {
 	
 	@Autowired
 	PaginaInicioJpaSpring pagina;
-	@Override
-	public String recuperarAboutUs() {
-		return null;
-	}
-
-	@Override
-	public String recuperarContacto() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	/*
+	 * @Override public String recuperarAboutUs() { return null; }
+	 * 
+	 * @Override public String recuperarContacto() { // TODO Auto-generated method
+	 * stub return null; }
+	 */
 
 	@Override
 	public List<PaginaInicial> pruebaDao() {
