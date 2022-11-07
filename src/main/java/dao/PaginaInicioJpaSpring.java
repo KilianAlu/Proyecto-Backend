@@ -7,7 +7,9 @@ import org.springframework.data.jpa.repository.Query;
 import model.PaginaInicial;
 @Service
 public interface PaginaInicioJpaSpring extends JpaRepository<PaginaInicial,Integer>{
-//	@Query("Select AboutUs from paginaInicial Where id = 1")
-//	String getAboutUs();
+	@Query(value = "Select Integrantes from paginaInicial Where id = 1", nativeQuery = true)
+	String getAboutUs();
+	@Query(value = "Select email,telefono from paginaInicial Where id = 1", nativeQuery = true)
+	String [] getContacto();
 	
 }

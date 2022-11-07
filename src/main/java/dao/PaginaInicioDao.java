@@ -8,9 +8,9 @@ import model.PaginaInicial;
 
 @Service
 public interface PaginaInicioDao {
-	/*
-	 * String recuperarAboutUs(); 
-	 * String recuperarContacto();
-	 */
+	
+	  String recuperarAboutUs(); 
+	  String [] recuperarContacto();
+	 
 	List<PaginaInicial> pruebaDao();
 }

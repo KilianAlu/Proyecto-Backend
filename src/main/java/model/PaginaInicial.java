@@ -2,6 +2,7 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.math.BigInteger;
 
 
 /**
@@ -18,11 +19,11 @@ public class PaginaInicial implements Serializable {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="PAGINAINICIAL_ID_GENERATOR")
 	private int id;
 
-	@Lob
-	private String aboutUs;
+	private String email;
 
-	@Lob
-	private String contacto;
+	private String integrantes;
+
+	private BigInteger telefono;
 
 	public PaginaInicial() {
 	}
@@ -35,20 +36,28 @@ public class PaginaInicial implements Serializable {
 		this.id = id;
 	}
 
-	public String getAboutUs() {
-		return this.aboutUs;
+	public String getEmail() {
+		return this.email;
 	}
 
-	public void setAboutUs(String aboutUs) {
-		this.aboutUs = aboutUs;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public String getContacto() {
-		return this.contacto;
+	public String getIntegrantes() {
+		return this.integrantes;
 	}
 
-	public void setContacto(String contacto) {
-		this.contacto = contacto;
+	public void setIntegrantes(String integrantes) {
+		this.integrantes = integrantes;
+	}
+
+	public BigInteger getTelefono() {
+		return this.telefono;
+	}
+
+	public void setTelefono(BigInteger telefono) {
+		this.telefono = telefono;
 	}
 
 }
