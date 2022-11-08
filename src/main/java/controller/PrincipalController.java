@@ -43,11 +43,12 @@ public class PrincipalController {
 	  
 	  @RequestMapping( value = "Contacto", method = RequestMethod.GET, produces =
 	  "application/json" ) public ResponseEntity<String> Contacto() { 
-		  // String [] contacto = service.contacto();
+		   String [] contacto = service.contacto();
+		   contacto = contacto[0].split(",");
 		  final HttpHeaders httpHeaders = new HttpHeaders();
 	  httpHeaders.setContentType(MediaType.APPLICATION_JSON); return new
-	  ResponseEntity<String>("{\"Test\": \""+ "contacto[0]" + service.contacto()+ " \"" +
-	  "\n" + "\"Test\": \"" + "contacto[1]" +"\"}", httpHeaders,HttpStatus.OK); }
+	  ResponseEntity<String>("{\"Email\": \""+ contacto[0] + "\"" +
+	  "\n" + "\"Telefono\": \"" + contacto[1] +"\"}", httpHeaders,HttpStatus.OK); }
 	 
 
 }
