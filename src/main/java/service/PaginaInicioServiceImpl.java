@@ -1,12 +1,14 @@
 package service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 
 import dao.PaginaInicioDao;
+import model.Foto;
 import model.PaginaInicial;
 
 @Component
@@ -23,9 +25,16 @@ public class PaginaInicioServiceImpl implements PaginaInicioService{
 	 
 
 	@Override
-	public List<PaginaInicial> pruebaService() {
+	public Optional<PaginaInicial> pruebaService(String id) {
 		// TODO Auto-generated method stub
-		return Dao.pruebaDao();
+		return Dao.pruebaDao(id);
 	}
+
+	@Override
+	public List<String> getIntegrantesService() {
+		// TODO Auto-generated method stub
+		return Dao.getIntegrantesDao();
+	}
+	
 
 }
