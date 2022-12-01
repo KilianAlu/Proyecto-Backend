@@ -39,9 +39,9 @@ public class PaginaInicioDaoImpl implements PaginaInicioDao {
 
 
 	@Override
-	public List<String> getIntegrantesDao() {
+	public List<Foto> getIntegrantesDao() {
 		// TODO Auto-generated method stub
-		return foto.getIntegrantesJpa();
+		return foto.findAll();
 	}
 	
 

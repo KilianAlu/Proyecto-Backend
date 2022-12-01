@@ -13,5 +13,5 @@ public interface PaginaInicioService {
 	String aboutUs();
 	String[] contacto();
 	Optional<PaginaInicial> pruebaService(String id);
-	List<String> getIntegrantesService();
+	List<Foto> getIntegrantesService();
 }

@@ -36,7 +36,7 @@ public class PrincipalController {
 		
 	}
 	@GetMapping(value="Integrantes",produces=MediaType.APPLICATION_JSON_VALUE)
-	public List<String> integrantes() {
+	public List<Foto> integrantes() {
 		return service.getIntegrantesService();
 	}
 	

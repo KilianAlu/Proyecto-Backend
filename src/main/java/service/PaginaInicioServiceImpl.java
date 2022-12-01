@@ -31,7 +31,7 @@ public class PaginaInicioServiceImpl implements PaginaInicioService{
 	}
 
 	@Override
-	public List<String> getIntegrantesService() {
+	public List<Foto> getIntegrantesService() {
 		// TODO Auto-generated method stub
 		return Dao.getIntegrantesDao();
 	}

@@ -15,5 +15,5 @@ public interface PaginaInicioDao {
 	  String [] recuperarContacto();
 	 
 	  Optional<PaginaInicial> pruebaDao(String id);
-	  List<String> getIntegrantesDao();
+	  List<Foto> getIntegrantesDao();
 }
