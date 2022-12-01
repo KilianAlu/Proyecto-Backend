@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 28-11-2022 a las 15:43:17
+-- Tiempo de generación: 01-12-2022 a las 16:13:26
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -40,9 +40,9 @@ CREATE TABLE `Foto` (
 --
 
 INSERT INTO `Foto` (`Id`, `Nombre`, `Especializacion`, `Informacion`, `Foto`) VALUES
-(1, 'Alejandro Dorado Casado', 'Front End', 'Gran pasion por la programacion \n y por el arte digital', ''),
-(2, 'Kilian Herrada Fernandez', 'Back End', 'Interés por el código abierto y por \nmejorar como programador.', ''),
-(3, 'Tigé David Ral Ramirez', 'Informe técnico', 'Me gusta expresar mi creatividad \n a través del desarrollo de software.\nY me satisface resolver problemas\n lógicos.', '');
+(1, 'Alejandro Dorado Casado', 'Front End', 'Gran pasion por la programacion \n y por el arte digital', 'http://10.0.2.2/php/foto_alex.jpg'),
+(2, 'Kilian Herrada Fernandez', 'Back End', 'Interés por el código abierto y por \nmejorar como programador.', 'http://10.0.2.2/php/foto_kilian.jpg'),
+(3, 'Tigé David Ral Ramirez', 'Informe técnico', 'Me gusta expresar mi creatividad \n a través del desarrollo de software.\nY me satisface resolver problemas\n lógicos.', 'http://10.0.2.2/php/foto_tige.jpg');
 
 -- --------------------------------------------------------
 
