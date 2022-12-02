@@ -16,4 +16,5 @@ public interface PaginaInicioDao {
 	 
 	  Optional<PaginaInicial> pruebaDao(String id);
 	  List<Foto> getIntegrantesDao();
+	  List<Foto> getIntegrantesNombreDao(String nombre);
 }

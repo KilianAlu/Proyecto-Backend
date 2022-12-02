@@ -40,6 +40,10 @@ public class PrincipalController {
 		return service.getIntegrantesService();
 	}
 	
+	@GetMapping(value="Integrantes/{nombre}",produces=MediaType.APPLICATION_JSON_VALUE)
+	public List<Foto> integrantesNombre(@PathVariable String nombre) {
+		return service.getIntegrantesNombreService(nombre);
+	}
 	  @RequestMapping( value = "AboutUs", method = RequestMethod.GET, produces = "application/json" ) 
 	  public ResponseEntity<String> aboutUs() { 
 		  final HttpHeaders httpHeaders = new HttpHeaders();

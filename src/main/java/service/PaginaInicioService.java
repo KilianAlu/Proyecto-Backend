@@ -14,4 +14,6 @@ public interface PaginaInicioService {
 	String[] contacto();
 	Optional<PaginaInicial> pruebaService(String id);
 	List<Foto> getIntegrantesService();
+	List<Foto> getIntegrantesNombreService(String nombre);
+	
 }

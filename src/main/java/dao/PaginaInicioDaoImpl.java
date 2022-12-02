@@ -43,6 +43,13 @@ public class PaginaInicioDaoImpl implements PaginaInicioDao {
 		// TODO Auto-generated method stub
 		return foto.findAll();
 	}
+
+
+	@Override
+	public List<Foto> getIntegrantesNombreDao(String nombre) {
+		// TODO Auto-generated method stub
+		return foto.findIntegrante(nombre);
+	}
 	
 
 }
