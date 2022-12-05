@@ -15,5 +15,6 @@ public interface PaginaInicioService {
 	Optional<PaginaInicial> pruebaService(String id);
 	List<Foto> getIntegrantesService();
 	List<Foto> getIntegrantesNombreService(String nombre);
+	Foto añadirIntegrante(Foto integrante);
 	
 }

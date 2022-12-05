@@ -13,8 +13,8 @@ public interface PaginaInicioDao {
 	
 	  String recuperarAboutUs(); 
 	  String [] recuperarContacto();
-	 
 	  Optional<PaginaInicial> pruebaDao(String id);
 	  List<Foto> getIntegrantesDao();
 	  List<Foto> getIntegrantesNombreDao(String nombre);
+	  Foto subirIntegrante(Foto integrante);
 }

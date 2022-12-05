@@ -13,6 +13,8 @@ import model.PaginaInicial;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -38,6 +40,12 @@ public class PrincipalController {
 	@GetMapping(value="Integrantes",produces=MediaType.APPLICATION_JSON_VALUE)
 	public List<Foto> integrantes() {
 		return service.getIntegrantesService();
+	}
+	
+	@PostMapping(value="CrearIntegrante", consumes=MediaType.APPLICATION_JSON_VALUE)
+	public String CrearIntegrante(@RequestBody Foto integrante) {
+		service.añadirIntegrante(integrante);
+		return "a";
 	}
 	
 	@GetMapping(value="Integrantes/{nombre}",produces=MediaType.APPLICATION_JSON_VALUE)
