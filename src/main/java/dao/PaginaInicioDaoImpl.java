@@ -57,22 +57,6 @@ public class PaginaInicioDaoImpl implements PaginaInicioDao {
 		// TODO Auto-generated method stub
 		return foto.findIntegrante(nombre);
 	}
-
-
-	@Override
-	@Transactional
-	public Foto subirIntegrante(Foto integrante) {
-		// TODO Auto-generated method stub
-		 entityManager.createNativeQuery("INSERT INTO 'Foto'(`Nombre`, `Especializacion`, `Informacion`, `Foto`) VALUES (:nombre,:especializacion,:informacion,:foto)");
-	}
-	@Transactional
-	public void insertWithQuery(Person person) {
-	    entityManager.createNativeQuery("INSERT INTO person (id, first_name, last_name) VALUES (?,?,?)")
-	      .setParameter(1, person.getId())
-	      .setParameter(2, person.getFirstName())
-	      .setParameter(3, person.getLastName())
-	      .executeUpdate();
-	}
 	
 
 }

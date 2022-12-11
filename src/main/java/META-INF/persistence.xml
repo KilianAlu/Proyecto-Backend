@@ -3,5 +3,6 @@
 	<persistence-unit name="Proyecto-Backend">
 		<class>model.PaginaInicial</class>
 		<class>model.Foto</class>
+		<class>model.Usuario</class>
 	</persistence-unit>
 </persistence>

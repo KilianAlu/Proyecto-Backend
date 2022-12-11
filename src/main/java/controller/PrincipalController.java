@@ -7,8 +7,10 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RestController;
 
 import service.PaginaInicioService;
+import service.UsuarioService;
 import model.Foto;
 import model.PaginaInicial;
+import model.Usuario;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +28,8 @@ import org.springframework.http.ResponseEntity;
 public class PrincipalController {
 	@Autowired
 	PaginaInicioService service;
+	@Autowired
+	UsuarioService usuarios;
 	/*
 	 * @GetMapping(value="AboutUs",produces=MediaType.APPLICATION_JSON_VALUE) public
 	 * String aboutUs() { return service.aboutUs();
@@ -42,9 +46,9 @@ public class PrincipalController {
 		return service.getIntegrantesService();
 	}
 	
-	@PostMapping(value="CrearIntegrante", consumes=MediaType.APPLICATION_JSON_VALUE)
-	public String CrearIntegrante(@RequestBody Foto integrante) {
-		service.añadirIntegrante(integrante);
+	@PostMapping(value="CrearUsuario", consumes=MediaType.APPLICATION_JSON_VALUE)
+	public String CrearIntegrante(@RequestBody Usuario usuario) {
+		usuarios.crearUsuario(usuario);
 		return "a";
 	}
 	

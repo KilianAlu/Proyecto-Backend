@@ -41,12 +41,6 @@ public class PaginaInicioServiceImpl implements PaginaInicioService{
 		// TODO Auto-generated method stub
 		return Dao.getIntegrantesNombreDao(nombre);
 	}
-
-	@Override
-	public Foto añadirIntegrante(Foto integrante) {
-		// TODO Auto-generated method stub
-		return Dao.subirIntegrante(integrante);
-	}
 	
 
 }

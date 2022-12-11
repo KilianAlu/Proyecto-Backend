@@ -11,7 +11,4 @@ public interface PaginaInicioJpaSpring extends JpaRepository<PaginaInicial,Integ
 	String getAboutUs();
 	@Query(value = "Select email,telefono from paginaInicial Where id = 1", nativeQuery = true)
 	String [] getContacto();
-	@Query(value = "INSERT INTO `paginaInicial`( `telefono`, `email`, `Integrantes`) VALUES ('[value-2]','[value-3]','[value-4]')", nativeQuery = true)
-	PaginaInicial a();
-	
 }
