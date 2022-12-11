@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 01-12-2022 a las 16:13:26
--- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 7.4.29
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 11-12-2022 a las 23:01:42
+-- Versión del servidor: 10.4.18-MariaDB
+-- Versión de PHP: 7.4.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `Foto`
+-- Estructura de tabla para la tabla `foto`
 --
 
-CREATE TABLE `Foto` (
+CREATE TABLE `foto` (
   `Id` int(11) NOT NULL,
   `Nombre` varchar(170) NOT NULL,
   `Especializacion` varchar(60) NOT NULL,
@@ -36,10 +36,10 @@ CREATE TABLE `Foto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `Foto`
+-- Volcado de datos para la tabla `foto`
 --
 
-INSERT INTO `Foto` (`Id`, `Nombre`, `Especializacion`, `Informacion`, `Foto`) VALUES
+INSERT INTO `foto` (`Id`, `Nombre`, `Especializacion`, `Informacion`, `Foto`) VALUES
 (1, 'Alejandro Dorado Casado', 'Front End', 'Gran pasion por la programacion \n y por el arte digital', 'http://10.0.2.2/php/foto_alex.jpg'),
 (2, 'Kilian Herrada Fernandez', 'Back End', 'Interés por el código abierto y por \nmejorar como programador.', 'http://10.0.2.2/php/foto_kilian.jpg'),
 (3, 'Tigé David Ral Ramirez', 'Informe técnico', 'Me gusta expresar mi creatividad \n a través del desarrollo de software.\nY me satisface resolver problemas\n lógicos.', 'http://10.0.2.2/php/foto_tige.jpg');
@@ -47,10 +47,10 @@ INSERT INTO `Foto` (`Id`, `Nombre`, `Especializacion`, `Informacion`, `Foto`) VA
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `paginaInicial`
+-- Estructura de tabla para la tabla `paginainicial`
 --
 
-CREATE TABLE `paginaInicial` (
+CREATE TABLE `paginainicial` (
   `id` int(11) NOT NULL,
   `telefono` bigint(20) NOT NULL,
   `email` varchar(40) NOT NULL,
@@ -58,26 +58,54 @@ CREATE TABLE `paginaInicial` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `paginaInicial`
+-- Volcado de datos para la tabla `paginainicial`
 --
 
-INSERT INTO `paginaInicial` (`id`, `telefono`, `email`, `Integrantes`) VALUES
+INSERT INTO `paginainicial` (`id`, `telefono`, `email`, `Integrantes`) VALUES
 (1, 9322312345, 'Alu2019068@Stucom.com', 'Kilian, Alejandro y tigé');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(60) NOT NULL,
+  `contraseña` varchar(40) NOT NULL,
+  `correo` varchar(90) NOT NULL,
+  `fechaNacimiento` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `nombre`, `contraseña`, `correo`, `fechaNacimiento`) VALUES
+(1, 'b', 'b', 'b', 'b'),
+(2, 'a', 'a', 'a@a.com', 'a');
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `Foto`
+-- Indices de la tabla `foto`
 --
-ALTER TABLE `Foto`
+ALTER TABLE `foto`
   ADD PRIMARY KEY (`Id`);
 
 --
--- Indices de la tabla `paginaInicial`
+-- Indices de la tabla `paginainicial`
 --
-ALTER TABLE `paginaInicial`
+ALTER TABLE `paginainicial`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -85,16 +113,22 @@ ALTER TABLE `paginaInicial`
 --
 
 --
--- AUTO_INCREMENT de la tabla `Foto`
+-- AUTO_INCREMENT de la tabla `foto`
 --
-ALTER TABLE `Foto`
+ALTER TABLE `foto`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de la tabla `paginaInicial`
+-- AUTO_INCREMENT de la tabla `paginainicial`
 --
-ALTER TABLE `paginaInicial`
+ALTER TABLE `paginainicial`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
