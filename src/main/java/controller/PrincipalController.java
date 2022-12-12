@@ -13,6 +13,7 @@ import model.PaginaInicial;
 import model.Usuario;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -47,9 +48,15 @@ public class PrincipalController {
 	}
 	
 	@PostMapping(value="CrearUsuario", consumes=MediaType.APPLICATION_JSON_VALUE)
-	public String CrearIntegrante(@RequestBody Usuario usuario) {
+	public String crearUsuario(@RequestBody Usuario usuario) {
 		usuarios.crearUsuario(usuario);
 		return "a";
+	}
+	
+	@DeleteMapping(value="EliminarUsuario/{id}")
+	public String eliminarUsuario(@RequestBody Usuario usuario) {
+		
+		return "El usuario ha sido eliminado";
 	}
 	
 	@GetMapping(value="Integrantes/{nombre}",produces=MediaType.APPLICATION_JSON_VALUE)
