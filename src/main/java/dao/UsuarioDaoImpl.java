@@ -26,4 +26,18 @@ public class UsuarioDaoImpl implements UsuarioDao{
 	      .executeUpdate();
 	}
 
+	@Transactional
+	@Override
+	public void eliminarUsuario(String id) {
+		Jpa.deleteById(Integer.parseInt(id));
+	}
+
+	@Override
+	public int BuscarUsuarioId(String id) {
+		if((Jpa.findById(Integer.parseInt(id))) != null){
+			return Integer.parseInt(id);
+		};
+		return 0;
+	}
+
 }

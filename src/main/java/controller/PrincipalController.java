@@ -53,14 +53,14 @@ public class PrincipalController {
 		return "a";
 	}
 	
-	@DeleteMapping(value="EliminarUsuario/{id}")
-	public String eliminarUsuario(@RequestBody Usuario usuario) {
-		
+	@GetMapping(value="EliminarUsuario/{id}")
+	public String eliminarUsuario(@PathVariable String id) {
+		usuarios.eliminarUsuario(id);
 		return "El usuario ha sido eliminado";
 	}
 	
 	@GetMapping(value="Integrantes/{nombre}",produces=MediaType.APPLICATION_JSON_VALUE)
-	public List<Foto> integrantesNombre(@PathVariable String nombre) {
+	public @ResponseBody List<Foto> integrantesNombre(@PathVariable String nombre) {
 		return service.getIntegrantesNombreService(nombre);
 	}
 	  @RequestMapping( value = "AboutUs", method = RequestMethod.GET, produces = "application/json" ) 
