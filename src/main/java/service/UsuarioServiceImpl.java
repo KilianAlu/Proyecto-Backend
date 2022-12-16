@@ -16,12 +16,14 @@ public class UsuarioServiceImpl implements UsuarioService{
 		Dao.añadirUsuario(usuario);
 	}
 	@Override
-	public void eliminarUsuario(String id) {
+	public String eliminarUsuario(String id) {
 		if(Dao.BuscarUsuarioId(id) == 0) {
-			
+			return "Este usuario no existe";
+					
 		}
 		else {
 			Dao.eliminarUsuario(id);
+			return "El usuario Ha sido eliminado";
 		}
 		
 		

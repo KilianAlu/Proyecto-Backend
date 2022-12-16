@@ -6,5 +6,5 @@ import model.Usuario;
 @Service
 public interface UsuarioService {
 	void crearUsuario(Usuario usuario);
-	void eliminarUsuario(String id);
+	String eliminarUsuario(String id);
 }

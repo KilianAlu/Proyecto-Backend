@@ -50,13 +50,12 @@ public class PrincipalController {
 	@PostMapping(value="CrearUsuario", consumes=MediaType.APPLICATION_JSON_VALUE)
 	public String crearUsuario(@RequestBody Usuario usuario) {
 		usuarios.crearUsuario(usuario);
-		return "a";
+		return "El usuario ha sido Añadido";
 	}
 	
-	@GetMapping(value="EliminarUsuario/{id}")
+	@DeleteMapping(value="EliminarUsuario/{id}")
 	public String eliminarUsuario(@PathVariable String id) {
-		usuarios.eliminarUsuario(id);
-		return "El usuario ha sido eliminado";
+		return usuarios.eliminarUsuario(id);
 	}
 	
 	@GetMapping(value="Integrantes/{nombre}",produces=MediaType.APPLICATION_JSON_VALUE)
@@ -71,7 +70,7 @@ public class PrincipalController {
 	  ("{\"About Us\": \"Somos " + service.aboutUs() + " y estamos haciendo una aplicacion\"}",
 	  httpHeaders,HttpStatus.OK); }
 	  
-	  @RequestMapping( value = "Contacto", method = RequestMethod.GET, produces =
+	  @RequestMapping(value = "Contacto", method = RequestMethod.GET, produces =
 	  "application/json" ) public ResponseEntity<String> Contacto() { 
 		   String [] contacto = service.contacto();
 		   contacto = contacto[0].split(",");
