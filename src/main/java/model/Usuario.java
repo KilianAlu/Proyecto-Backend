@@ -11,6 +11,12 @@ import javax.persistence.*;
 @Entity
 @NamedQuery(name="Usuario.findAll", query="SELECT u FROM Usuario u")
 public class Usuario implements Serializable {
+	@Override
+	public String toString() {
+		return "Usuario [contraseña=" + contraseña + ", correo=" + correo + ", fechaNacimiento=" + fechaNacimiento
+				+ ", id=" + id + ", nombre=" + nombre + "]";
+	}
+
 	private static final long serialVersionUID = 1L;
 
 	private String contraseña;

@@ -41,4 +41,9 @@ public class UsuarioDaoImpl implements UsuarioDao{
 		return 0;
 	}
 
+	@Override
+	public Usuario login(String nombre, String contrasena) {
+			return Jpa.login(nombre, contrasena);
+	}
+
 }

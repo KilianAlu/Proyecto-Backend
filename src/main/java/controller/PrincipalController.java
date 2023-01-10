@@ -58,6 +58,12 @@ public class PrincipalController {
 		return usuarios.eliminarUsuario(id);
 	}
 	
+	@PostMapping(value="Login",consumes=MediaType.APPLICATION_JSON_VALUE)
+	public Usuario login(@RequestBody Usuario login) {
+		return usuarios.login(login.getNombre(),login.getContraseña());
+		
+	}
+	
 	@GetMapping(value="Integrantes/{nombre}",produces=MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody List<Foto> integrantesNombre(@PathVariable String nombre) {
 		return service.getIntegrantesNombreService(nombre);

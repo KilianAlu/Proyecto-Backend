@@ -28,5 +28,9 @@ public class UsuarioServiceImpl implements UsuarioService{
 		
 		
 	}
+	@Override
+	public Usuario login(String nombre, String contrasena) {
+		return Dao.login(nombre, contrasena);
+	}
 
 }
