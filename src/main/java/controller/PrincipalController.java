@@ -47,12 +47,10 @@ public class PrincipalController {
 		return service.getIntegrantesService();
 	}
 	
-	@PostMapping(value="CrearUsuario",produces=MediaType.APPLICATION_JSON_VALUE ,consumes=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<String> crearUsuario(@RequestBody Usuario usuario) {
+	@PostMapping(value="CrearUsuario", consumes=MediaType.APPLICATION_JSON_VALUE)
+	public String crearUsuario(@RequestBody Usuario usuario) {
 		usuarios.crearUsuario(usuario);
-		final HttpHeaders httpHeaders = new HttpHeaders();
-		  httpHeaders.setContentType(MediaType.APPLICATION_JSON); return new
-		  ResponseEntity<String>("{\"Respuesta\": \"El usuario Ha sido añadido\"}", httpHeaders,HttpStatus.OK);
+		return "El usuario ha sido Añadido";
 	}
 	
 	@DeleteMapping(value="EliminarUsuario/{id}")
