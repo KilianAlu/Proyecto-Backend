@@ -3,6 +3,7 @@ package dao;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -21,7 +22,7 @@ public class UsuarioDaoImpl implements UsuarioDao{
 	public void añadirUsuario(Usuario usuario) {
 		 entityManager.createNativeQuery("INSERT INTO `usuario`(`nombre`, `contraseña`, `correo`, `fechaNacimiento`) VALUES (?,?,?,?)")
 	      .setParameter(1, usuario.getNombre())
-	      .setParameter(2, usuario.getContraseña())
+	      .setParameter(2, DigestUtils.md5Hex(usuario.getContraseña()))
 	      .setParameter(3, usuario.getCorreo())
 	      .setParameter(4, usuario.getFechaNacimiento())
 	      .executeUpdate();
@@ -43,7 +44,8 @@ public class UsuarioDaoImpl implements UsuarioDao{
 
 	@Override
 	public Usuario login(String nombre, String contrasena) {
-			return Jpa.login(nombre, contrasena);
+		System.out.println(Jpa.login(nombre, contrasena));
+			return Jpa.login(nombre,  DigestUtils.md5Hex(contrasena));
 	}
 
 }

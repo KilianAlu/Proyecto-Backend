@@ -7,10 +7,11 @@ import org.springframework.data.repository.query.Param;
 
 import model.Usuario;
 
-public interface UsuarioJpaSpring  extends JpaRepository<Usuario,Integer>{
+public interface UsuarioJpaSpring extends JpaRepository<Usuario, Integer> {
 	@Modifying
-	@Query(value = "DELETE FROM `Foto` WHERE id = :id",nativeQuery=true)
-	void deleteUsuario(@Param ("id") String id);
-	@Query (value = "SELECT * FROM `usuario` WHERE nombre = :nombre AND contraseña = :contrasena",nativeQuery=true)
-	Usuario login(@Param ("nombre") String nombre, @Param ("contrasena") String contrasena);
+	@Query(value = "DELETE FROM `Foto` WHERE id = :id", nativeQuery = true)
+	void deleteUsuario(@Param("id") String id);
+
+	@Query(value = "SELECT * FROM `usuario` WHERE nombre = :nombre AND contraseña = :contrasena", nativeQuery = true)
+	Usuario login(@Param("nombre") String nombre, @Param("contrasena") String contrasena);
 }
