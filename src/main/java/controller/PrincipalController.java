@@ -74,6 +74,11 @@ public class PrincipalController {
 		return usuarios.login(login.getNombre(),login.getContraseña());
 		
 	}
+	@PostMapping(value="cLogin",consumes=MediaType.APPLICATION_JSON_VALUE)
+	public boolean cLogin(@RequestBody Usuario login) {
+		return usuarios.cLogin(login.getNombre(),login.getContraseña());
+		
+	}
 	
 	@GetMapping(value="Integrantes/{nombre}",produces=MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody List<Foto> integrantesNombre(@PathVariable String nombre) {

@@ -48,4 +48,10 @@ public class UsuarioDaoImpl implements UsuarioDao{
 			return Jpa.login(nombre,  DigestUtils.md5Hex(contrasena));
 	}
 
+	@Override
+	public int  cLogin(String nombre, String contrasena) {
+		// TODO Auto-generated method stub
+		return Jpa.cLogin(nombre, contrasena);
+	}
+
 }

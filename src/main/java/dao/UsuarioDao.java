@@ -9,4 +9,5 @@ public interface UsuarioDao {
 	void eliminarUsuario(String id);
 	int BuscarUsuarioId(String id);
 	Usuario login(String nombre,String contrasena); 
+	int cLogin(String nombre,String contrasena);
 }

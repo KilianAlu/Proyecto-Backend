@@ -32,5 +32,15 @@ public class UsuarioServiceImpl implements UsuarioService{
 	public Usuario login(String nombre, String contrasena) {
 		return Dao.login(nombre, contrasena);
 	}
+	@Override
+	public boolean cLogin(String nombre, String contrasena) {
+		// TODO Auto-generated method stub
+		if(Dao.cLogin(nombre, contrasena) == 1) {
+			return true;
+		}
+		else {
+			return false;
+		}
+			}
 
 }

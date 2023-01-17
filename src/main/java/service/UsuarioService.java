@@ -8,4 +8,5 @@ public interface UsuarioService {
 	void crearUsuario(Usuario usuario);
 	String eliminarUsuario(String id);
 	Usuario login(String nombre, String contrasena);
+	boolean cLogin(String nombre,String contrasena);
 }
