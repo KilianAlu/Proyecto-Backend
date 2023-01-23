@@ -1,5 +1,7 @@
 package service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,5 +44,16 @@ public class UsuarioServiceImpl implements UsuarioService{
 			return false;
 		}
 			}
+	@Override
+	public Optional<Usuario> verPerfilUsuario(String id) {
+		// TODO Auto-generated method stub
+		if(Dao.BuscarUsuarioId(id) == 0) {
+			Usuario a = new Usuario();
+			a.setId(-1);
+			a.setNombre("No existe nadie asi en la base de datos");
+			return Optional.of(a);
+		}
+		return Dao.infoUsuarioId(id);
+	}
 
 }

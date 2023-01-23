@@ -64,8 +64,13 @@ public class PrincipalController {
 		return new ResponseEntity<String>("{\"Respuesta\": \"El usuario Ha sido añadido\"}", httpHeaders,
 				HttpStatus.OK);
 	}
-
-	@PutMapping(value = "")
+	@PutMapping(value = "actuPerfil")
+	
+	
+	@GetMapping(value = "perfil/{idUsuario}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody Optional<Usuario> verPerfilUsuario(@PathVariable String idUsuario) {
+		return usuarios.verPerfilUsuario(idUsuario);
+	}
 
 	@DeleteMapping(value = "EliminarUsuario/{id}")
 	public String eliminarUsuario(@PathVariable String id) {
@@ -110,4 +115,6 @@ public class PrincipalController {
 				"{\"Email\": \"" + contacto[0] + "\"" + "\n" + "\"Telefono\": \"" + contacto[1] + "\"}", httpHeaders,
 				HttpStatus.OK);
 	}
+	
+	
 }

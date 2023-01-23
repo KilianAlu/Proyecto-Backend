@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.Optional;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -41,6 +43,7 @@ public class UsuarioDaoImpl implements UsuarioDao{
 		};
 		return 0;
 	}
+	
 
 	@Override
 	public Usuario login(String nombre, String contrasena) {
@@ -52,6 +55,12 @@ public class UsuarioDaoImpl implements UsuarioDao{
 	public int  cLogin(String nombre, String contrasena) {
 		// TODO Auto-generated method stub
 		return Jpa.cLogin(nombre, contrasena);
+	}
+
+	@Override
+	public Optional<Usuario> infoUsuarioId(String id) {
+		// TODO Auto-generated method stub
+		return Jpa.findById(Integer.parseInt(id));
 	}
 
 }
