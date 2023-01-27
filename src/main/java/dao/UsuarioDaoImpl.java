@@ -47,14 +47,13 @@ public class UsuarioDaoImpl implements UsuarioDao{
 
 	@Override
 	public Usuario login(String nombre, String contrasena) {
-		System.out.println(Jpa.login(nombre, contrasena));
-			return Jpa.login(nombre,  DigestUtils.md5Hex(contrasena));
+			return Jpa.login(nombre,contrasena);
 	}
 
 	@Override
-	public int  cLogin(String nombre, String contrasena) {
+	public int  existeUsuario(String nombre, String contrasena) {
 		// TODO Auto-generated method stub
-		return Jpa.cLogin(nombre, contrasena);
+		return Jpa.existeUsuario(nombre, contrasena);
 	}
 
 	@Override

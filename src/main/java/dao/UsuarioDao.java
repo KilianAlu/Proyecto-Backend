@@ -12,5 +12,5 @@ public interface UsuarioDao {
 	int BuscarUsuarioId(String id);
 	Optional<Usuario> infoUsuarioId(String id);
 	Usuario login(String nombre,String contrasena); 
-	int cLogin(String nombre,String contrasena);
+	int existeUsuario(String nombre,String contrasena);
 }

@@ -2,6 +2,7 @@ package service;
 
 import java.util.Optional;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,12 +33,12 @@ public class UsuarioServiceImpl implements UsuarioService{
 	}
 	@Override
 	public Usuario login(String nombre, String contrasena) {
-		return Dao.login(nombre, contrasena);
+		return Dao.login(nombre,DigestUtils.md5Hex(contrasena));
 	}
 	@Override
 	public boolean cLogin(String nombre, String contrasena) {
 		// TODO Auto-generated method stub
-		if(Dao.cLogin(nombre, contrasena) == 1) {
+		if(Dao.existeUsuario(nombre,DigestUtils.md5Hex(contrasena)) == 1) {
 			return true;
 		}
 		else {
