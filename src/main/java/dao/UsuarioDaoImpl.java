@@ -62,4 +62,16 @@ public class UsuarioDaoImpl implements UsuarioDao{
 		return Jpa.findById(Integer.parseInt(id));
 	}
 
+	@Override
+	public int existeNombre(String nombre) {
+		// TODO Auto-generated method stub
+		return Jpa.existNombre(nombre);
+	}
+
+	@Override
+	public int existeEmail(String email) {
+		// TODO Auto-generated method stub
+		return Jpa.existeEmail(email);
+	}
+
 }

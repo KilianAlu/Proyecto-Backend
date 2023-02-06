@@ -13,4 +13,6 @@ public interface UsuarioDao {
 	Optional<Usuario> infoUsuarioId(String id);
 	Usuario login(String nombre,String contrasena); 
 	int existeUsuario(String nombre,String contrasena);
+	int existeNombre(String nombre);
+	int existeEmail(String email);
 }

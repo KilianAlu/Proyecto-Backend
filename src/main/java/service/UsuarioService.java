@@ -12,4 +12,6 @@ public interface UsuarioService {
 	Usuario login(String nombre, String contrasena);
 	boolean cLogin(String nombre,String contrasena);
 	Optional<Usuario> verPerfilUsuario(String id);
+	boolean exNombre(String nombre);
+	boolean exEmail(String nombre);
 }

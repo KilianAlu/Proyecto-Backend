@@ -82,6 +82,22 @@ public class PrincipalController {
 		return usuarios.login(login.getNombre(), login.getContraseña());
 
 	}
+	
+	@PostMapping(value = "exNombre",consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Boolean> exNombre(@RequestBody Usuario nombreUsuario) {
+		final HttpHeaders httpHeaders = new HttpHeaders();
+		  httpHeaders.setContentType(MediaType.APPLICATION_JSON); 
+		  return new ResponseEntity<Boolean>(usuarios.exNombre(nombreUsuario.getNombre()),HttpStatus.OK);
+		
+	}
+	
+	@PostMapping(value = "exEmail",consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Boolean> exEmail(@RequestBody Usuario email) {
+		final HttpHeaders httpHeaders = new HttpHeaders();
+		  httpHeaders.setContentType(MediaType.APPLICATION_JSON); 
+		  return new ResponseEntity<Boolean>(usuarios.exEmail(email.getCorreo()),HttpStatus.OK);
+		
+	}
 
 	@PostMapping(value="cLogin",consumes=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Boolean> cLogin(@RequestBody Usuario login) {

@@ -56,5 +56,26 @@ public class UsuarioServiceImpl implements UsuarioService{
 		}
 		return Dao.infoUsuarioId(id);
 	}
+	@Override
+	public boolean exNombre(String nombre) {
+		// TODO Auto-generated method stub
+		if(Dao.existeNombre(nombre) == 1) {
+			return true;
+		}
+		else {
+			return false;
+		}
+		
+	}
+	@Override
+	public boolean exEmail(String email) {
+		// TODO Auto-generated method stub
+		if(Dao.existeEmail(email) == 1) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 
 }
