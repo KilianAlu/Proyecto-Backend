@@ -29,7 +29,7 @@ public class Usuario implements Serializable {
 	@SequenceGenerator(name="USUARIO_ID_GENERATOR" )
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="USUARIO_ID_GENERATOR")
 	private int id;
-
+	@Column(unique = true)
 	private String nombre;
 
 	public Usuario() {
