@@ -35,11 +35,10 @@ public class UsuarioDaoImpl implements UsuarioDao{
 	public void eliminarUsuario(String id) {
 		Jpa.deleteById(Integer.parseInt(id));
 	}
-
 	@Override
 	public int BuscarUsuarioId(String id) {
 		if((Jpa.findById(Integer.parseInt(id))) != null){
-			return Integer.parseInt(id);
+			return 1;
 		};
 		return 0;
 	}
@@ -72,6 +71,14 @@ public class UsuarioDaoImpl implements UsuarioDao{
 	public int existeEmail(String email) {
 		// TODO Auto-generated method stub
 		return Jpa.existeEmail(email);
+	}
+
+	@Transactional
+	@Override
+	public String cambiarNombre(int id, String nNombre) {
+		// TODO Auto-generated method stub
+		Jpa.cambiarNombre(id, nNombre);
+		return "El nombre Ha sido cambiado";
 	}
 
 }

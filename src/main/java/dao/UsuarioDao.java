@@ -15,4 +15,5 @@ public interface UsuarioDao {
 	int existeUsuario(String nombre,String contrasena);
 	int existeNombre(String nombre);
 	int existeEmail(String email);
+	String cambiarNombre(int id,String nNombre);
 }

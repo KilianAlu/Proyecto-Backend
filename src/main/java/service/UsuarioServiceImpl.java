@@ -10,45 +10,47 @@ import dao.UsuarioDao;
 import model.Usuario;
 
 @Service
-public class UsuarioServiceImpl implements UsuarioService{
-	
+public class UsuarioServiceImpl implements UsuarioService {
+
 	@Autowired
 	UsuarioDao Dao;
+
 	@Override
 	public void crearUsuario(Usuario usuario) {
 		Dao.añadirUsuario(usuario);
 	}
+
 	@Override
 	public String eliminarUsuario(String id) {
-		if(Dao.BuscarUsuarioId(id) == 0) {
+		if (Dao.BuscarUsuarioId(id) == 0) {
 			return "Este usuario no existe";
-					
-		}
-		else {
+
+		} else {
 			Dao.eliminarUsuario(id);
 			return "El usuario Ha sido eliminado";
 		}
-		
-		
+
 	}
+
 	@Override
 	public Usuario login(String nombre, String contrasena) {
-		return Dao.login(nombre,DigestUtils.md5Hex(contrasena));
+		return Dao.login(nombre, DigestUtils.md5Hex(contrasena));
 	}
+
 	@Override
-	public boolean cLogin(String nombre, String contrasena) {
+	public boolean exUsuario(String nombre, String contrasena) {
 		// TODO Auto-generated method stub
-		if(Dao.existeUsuario(nombre,DigestUtils.md5Hex(contrasena)) == 1) {
+		if (Dao.existeUsuario(nombre, DigestUtils.md5Hex(contrasena)) == 1) {
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
-			}
+	}
+
 	@Override
 	public Optional<Usuario> verPerfilUsuario(String id) {
 		// TODO Auto-generated method stub
-		if(Dao.BuscarUsuarioId(id) == 0) {
+		if (Dao.BuscarUsuarioId(id) == 0) {
 			Usuario a = new Usuario();
 			a.setId(-1);
 			a.setNombre("No existe nadie asi en la base de datos");
@@ -56,25 +58,36 @@ public class UsuarioServiceImpl implements UsuarioService{
 		}
 		return Dao.infoUsuarioId(id);
 	}
+
 	@Override
 	public boolean exNombre(String nombre) {
 		// TODO Auto-generated method stub
-		if(Dao.existeNombre(nombre) == 1) {
+		if (Dao.existeNombre(nombre) == 1) {
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
-		
+
 	}
+
 	@Override
 	public boolean exEmail(String email) {
 		// TODO Auto-generated method stub
-		if(Dao.existeEmail(email) == 1) {
+		if (Dao.existeEmail(email) == 1) {
 			return true;
+		} else {
+			return false;
+		}
+	}
+
+	@Override
+	public String cNombre(int id,String nombre) {
+		// TODO Auto-generated method stub
+		if (Dao.BuscarUsuarioId(Integer.toString(id)) == 1) {
+			return Dao.cambiarNombre(id, nombre);
 		}
 		else {
-			return false;
+		return "No existe el usuario al que le quieres cambiar el nombre";
 		}
 	}
 

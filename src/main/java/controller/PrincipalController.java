@@ -64,9 +64,9 @@ public class PrincipalController {
 		return new ResponseEntity<String>("{\"Respuesta\": \"El usuario Ha sido añadido\"}", httpHeaders,
 				HttpStatus.OK);
 	}
+
 	@PutMapping(value = "actuPerfil")
-	
-	
+
 	@GetMapping(value = "perfil/{idUsuario}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody Optional<Usuario> verPerfilUsuario(@PathVariable String idUsuario) {
 		return usuarios.verPerfilUsuario(idUsuario);
@@ -82,29 +82,37 @@ public class PrincipalController {
 		return usuarios.login(login.getNombre(), login.getContraseña());
 
 	}
-	
-	@PostMapping(value = "exNombre",consumes = MediaType.APPLICATION_JSON_VALUE)
+
+	@PostMapping(value = "exNombre", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Boolean> exNombre(@RequestBody Usuario nombreUsuario) {
 		final HttpHeaders httpHeaders = new HttpHeaders();
-		  httpHeaders.setContentType(MediaType.APPLICATION_JSON); 
-		  return new ResponseEntity<Boolean>(usuarios.exNombre(nombreUsuario.getNombre()),HttpStatus.OK);
-		
-	}
-	
-	@PostMapping(value = "exEmail",consumes = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Boolean> exEmail(@RequestBody Usuario email) {
-		final HttpHeaders httpHeaders = new HttpHeaders();
-		  httpHeaders.setContentType(MediaType.APPLICATION_JSON); 
-		  return new ResponseEntity<Boolean>(usuarios.exEmail(email.getCorreo()),HttpStatus.OK);
-		
+		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+		return new ResponseEntity<Boolean>(usuarios.exNombre(nombreUsuario.getNombre()), HttpStatus.OK);
+
 	}
 
-	@PostMapping(value="cLogin",consumes=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Boolean> cLogin(@RequestBody Usuario login) {
+	@PostMapping(value = "exEmail", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Boolean> exEmail(@RequestBody Usuario email) {
 		final HttpHeaders httpHeaders = new HttpHeaders();
-		  httpHeaders.setContentType(MediaType.APPLICATION_JSON); 
-		  return new ResponseEntity<Boolean>(usuarios.cLogin(login.getNombre(), login.getContraseña()),HttpStatus.OK);
-		
+		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+		return new ResponseEntity<Boolean>(usuarios.exEmail(email.getCorreo()), HttpStatus.OK);
+
+	}
+
+	@PostMapping(value = "exUsuario", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Boolean> exUsuario(@RequestBody Usuario login) {
+		final HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+		return new ResponseEntity<Boolean>(usuarios.exUsuario(login.getNombre(), login.getContraseña()), HttpStatus.OK);
+
+	}
+	@PostMapping(value = "cNombre" , produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<String>cNombre(@RequestBody Usuario usuario){
+		final HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+		return new ResponseEntity<String>(
+				"{\"Respuesta\": \" " + usuarios.cNombre(usuario.getId(), usuario.getNombre()) + "\"}", httpHeaders,
+				HttpStatus.OK);
 	}
 
 	@GetMapping(value = "Integrantes/{nombre}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -131,6 +139,5 @@ public class PrincipalController {
 				"{\"Email\": \"" + contacto[0] + "\"" + "\n" + "\"Telefono\": \"" + contacto[1] + "\"}", httpHeaders,
 				HttpStatus.OK);
 	}
-	
-	
+
 }
