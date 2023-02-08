@@ -15,4 +15,5 @@ public interface UsuarioService {
 	boolean exNombre(String nombre);
 	boolean exEmail(String nombre);
 	String cNombre(int id,String nNombre);
+	String cEmail(int id,String nEmail);
 }
