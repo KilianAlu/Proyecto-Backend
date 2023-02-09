@@ -18,4 +18,5 @@ public interface UsuarioService {
 	String cEmail(int id,String nEmail);
 	String cFechaNacimiento(int id,String nFecha);
 	String cContrasena(int id,String nContrasena);
+	boolean compContrasena(int id,String contrasena);
 }

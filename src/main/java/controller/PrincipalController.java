@@ -55,7 +55,7 @@ public class PrincipalController {
 //		usuarios.crearUsuario(usuario);
 //		return "El usuario ha sido Añadido";
 //	}
-
+	
 	@PostMapping(value = "CrearUsuario", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> crearUsuario(@RequestBody Usuario usuario) {
 		usuarios.crearUsuario(usuario);
@@ -64,8 +64,6 @@ public class PrincipalController {
 		return new ResponseEntity<String>("{\"Respuesta\": \"El usuario Ha sido añadido\"}", httpHeaders,
 				HttpStatus.OK);
 	}
-
-	@PutMapping(value = "actuPerfil")
 
 	@GetMapping(value = "perfil/{idUsuario}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody Optional<Usuario> verPerfilUsuario(@PathVariable String idUsuario) {
@@ -139,6 +137,14 @@ public class PrincipalController {
 		return new ResponseEntity<String>(
 				"{\"Respuesta\": \" " + usuarios.cContrasena(usuario.getId(), usuario.getContraseña()) + "\"}", httpHeaders,
 				HttpStatus.OK);
+	}
+	
+	@PostMapping(value = "compContrasena",consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Boolean> compContraseña(@RequestBody Usuario usuario) {
+		final HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+		return new ResponseEntity<Boolean>(usuarios.compContrasena(usuario.getId(),usuario.getContraseña()), HttpStatus.OK);
+
 	}
 
 	@GetMapping(value = "Integrantes/{nombre}", produces = MediaType.APPLICATION_JSON_VALUE)

@@ -19,4 +19,5 @@ public interface UsuarioDao {
 	String cambiarEmail(int id,String nEmail);
 	String cambiarFechaNacimiento(int id,String nFecha);
 	String cambiarContrasena(int id,String nContrasena);
+	int comprobarContrasena(int id,String contrasena);
 }

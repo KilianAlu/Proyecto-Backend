@@ -106,7 +106,19 @@ public class UsuarioServiceImpl implements UsuarioService {
 	@Override
 	public String cContrasena(int id, String nContrasena) {
 		// TODO Auto-generated method stub
-		return Dao.cambiarContrasena(id,nContrasena);
+		return Dao.cambiarContrasena(id, DigestUtils.md5Hex(nContrasena));
+	}
+
+	@Override
+	public boolean compContrasena(int id,String contrasena) {
+		// TODO Auto-generated method stub
+		if(Dao.comprobarContrasena(id, DigestUtils.md5Hex(contrasena)) == 1) {
+			return true;
+		}
+		else{
+			return false;
+		}
+		
 	}
 
 }

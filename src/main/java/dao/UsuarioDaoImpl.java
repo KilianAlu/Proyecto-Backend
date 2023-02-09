@@ -95,12 +95,19 @@ public class UsuarioDaoImpl implements UsuarioDao{
 		Jpa.cambiarFechaNacimiento(id, nFecha);
 		return "la fecha ha sido cambiado";
 	}
-
+	
+	@Transactional
 	@Override
 	public String cambiarContrasena(int id, String nContrasena) {
 		// TODO Auto-generated method stub
 		Jpa.cambiarContrasena(id, nContrasena);
 		return "La Contraseña ha sido cambiada";
+	}
+
+	@Override
+	public int comprobarContrasena(int id, String contrasena) {
+		// TODO Auto-generated method stub
+		return Jpa.comprobarContrasena(contrasena,id);
 	}
 
 }
