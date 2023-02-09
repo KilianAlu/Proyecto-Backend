@@ -80,5 +80,27 @@ public class UsuarioDaoImpl implements UsuarioDao{
 		Jpa.cambiarNombre(id, nNombre);
 		return "El nombre Ha sido cambiado";
 	}
+	@Transactional
+	@Override
+	public String cambiarEmail(int id, String nEmail) {
+		// TODO Auto-generated method stub
+		Jpa.cambiarEmail(id, nEmail);
+		return "El Correo ha sido cambiado";
+	}
+	
+	@Transactional
+	@Override
+	public String cambiarFechaNacimiento(int id, String nFecha) {
+		// TODO Auto-generated method stub
+		Jpa.cambiarFechaNacimiento(id, nFecha);
+		return "la fecha ha sido cambiado";
+	}
+
+	@Override
+	public String cambiarContrasena(int id, String nContrasena) {
+		// TODO Auto-generated method stub
+		Jpa.cambiarContrasena(id, nContrasena);
+		return "La Contraseña ha sido cambiada";
+	}
 
 }

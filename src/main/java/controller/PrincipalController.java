@@ -114,6 +114,32 @@ public class PrincipalController {
 				"{\"Respuesta\": \" " + usuarios.cNombre(usuario.getId(), usuario.getNombre()) + "\"}", httpHeaders,
 				HttpStatus.OK);
 	}
+	@PostMapping(value = "cEmail" , produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<String>cEmail(@RequestBody Usuario usuario){
+		final HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+		return new ResponseEntity<String>(
+				"{\"Respuesta\": \" " + usuarios.cEmail(usuario.getId(), usuario.getCorreo()) + "\"}", httpHeaders,
+				HttpStatus.OK);
+	}
+	
+	@PostMapping(value = "cFechaNacimiento" , produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<String>cFechaNacimiento(@RequestBody Usuario usuario){
+		final HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+		return new ResponseEntity<String>(
+				"{\"Respuesta\": \" " + usuarios.cFechaNacimiento(usuario.getId(), usuario.getFechaNacimiento()) + "\"}", httpHeaders,
+				HttpStatus.OK);
+	}
+	
+	@PostMapping(value = "cContrasena" , produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<String>cContrasena(@RequestBody Usuario usuario){
+		final HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+		return new ResponseEntity<String>(
+				"{\"Respuesta\": \" " + usuarios.cContrasena(usuario.getId(), usuario.getContraseña()) + "\"}", httpHeaders,
+				HttpStatus.OK);
+	}
 
 	@GetMapping(value = "Integrantes/{nombre}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody List<Foto> integrantesNombre(@PathVariable String nombre) {

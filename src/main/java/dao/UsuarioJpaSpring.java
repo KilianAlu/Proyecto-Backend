@@ -26,4 +26,13 @@ public interface UsuarioJpaSpring extends JpaRepository<Usuario, Integer> {
 	@Modifying
 	@Query(value = "Update usuario set nombre = :nombre where id = :id", nativeQuery = true)
 	void cambiarNombre(@Param("id") int id,@Param("nombre") String nNombre);
+	@Modifying
+	@Query(value = "Update usuario set correo = :email where id = :id", nativeQuery = true)
+	void cambiarEmail(@Param("id") int id,@Param("email") String nEmail );
+	@Modifying
+	@Query(value = "Update usuario set fechaNacimiento = :fechaNacimiento where id = :id", nativeQuery = true)
+	void cambiarFechaNacimiento(@Param("id") int id,@Param("fechaNacimiento") String nFecha);
+	@Modifying
+	@Query(value = "Update usuario set contraseña = :contrasena where id = :id", nativeQuery = true)
+	void cambiarContrasena(@Param("id") int id,@Param("contraseña") String nContrasena);
 }

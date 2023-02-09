@@ -91,4 +91,22 @@ public class UsuarioServiceImpl implements UsuarioService {
 		}
 	}
 
+	@Override
+	public String cEmail(int id, String nEmail) {
+		// TODO Auto-generated method stub
+		return Dao.cambiarEmail(id,nEmail);
+	}
+
+	@Override
+	public String cFechaNacimiento(int id, String nFecha) {
+		// TODO Auto-generated method stub
+		return Dao.cambiarFechaNacimiento(id,nFecha);
+	}
+
+	@Override
+	public String cContrasena(int id, String nContrasena) {
+		// TODO Auto-generated method stub
+		return Dao.cambiarContrasena(id,nContrasena);
+	}
+
 }
