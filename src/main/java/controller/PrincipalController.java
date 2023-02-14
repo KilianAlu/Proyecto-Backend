@@ -104,7 +104,7 @@ public class PrincipalController {
 		return new ResponseEntity<Boolean>(usuarios.exUsuario(login.getNombre(), login.getContraseña()), HttpStatus.OK);
 
 	}
-	@PostMapping(value = "cNombre" , produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
+	@PutMapping(value = "cNombre" , produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String>cNombre(@RequestBody Usuario usuario){
 		final HttpHeaders httpHeaders = new HttpHeaders();
 		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
@@ -112,7 +112,7 @@ public class PrincipalController {
 				"{\"Respuesta\": \" " + usuarios.cNombre(usuario.getId(), usuario.getNombre()) + "\"}", httpHeaders,
 				HttpStatus.OK);
 	}
-	@PostMapping(value = "cEmail" , produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
+	@PutMapping(value = "cEmail" , produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String>cEmail(@RequestBody Usuario usuario){
 		final HttpHeaders httpHeaders = new HttpHeaders();
 		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
@@ -121,7 +121,7 @@ public class PrincipalController {
 				HttpStatus.OK);
 	}
 	
-	@PostMapping(value = "cFechaNacimiento" , produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
+	@PutMapping(value = "cFechaNacimiento" , produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String>cFechaNacimiento(@RequestBody Usuario usuario){
 		final HttpHeaders httpHeaders = new HttpHeaders();
 		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
@@ -130,7 +130,7 @@ public class PrincipalController {
 				HttpStatus.OK);
 	}
 	
-	@PostMapping(value = "cContrasena" , produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
+	@PutMapping(value = "cContrasena" , produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String>cContrasena(@RequestBody Usuario usuario){
 		final HttpHeaders httpHeaders = new HttpHeaders();
 		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
