@@ -2,61 +2,38 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.util.Date;
+import java.util.List;
 
 
 /**
- * The persistent class for the usuario database table.
+ * The persistent class for the Usuario database table.
  * 
  */
 @Entity
 @NamedQuery(name="Usuario.findAll", query="SELECT u FROM Usuario u")
 public class Usuario implements Serializable {
-	@Override
-	public String toString() {
-		return "Usuario [contraseña=" + contraseña + ", correo=" + correo + ", fechaNacimiento=" + fechaNacimiento
-				+ ", id=" + id + ", nombre=" + nombre + "]";
-	}
-
 	private static final long serialVersionUID = 1L;
-
-	private String contraseña;
-
-	private String correo;
-
-	private String fechaNacimiento;
 
 	@Id
 	@SequenceGenerator(name="USUARIO_ID_GENERATOR" )
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="USUARIO_ID_GENERATOR")
 	private int id;
-	@Column(unique = true)
+
+	private String contraseña;
+
+	private String email;
+
+	@Temporal(TemporalType.DATE)
+	private Date fechaNacimiento;
+
 	private String nombre;
 
+	//bi-directional many-to-one association to Equipo
+	@OneToMany(mappedBy="usuario")
+	private List<Equipo> equipos;
+
 	public Usuario() {
-	}
-
-	public String getContraseña() {
-		return this.contraseña;
-	}
-
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
-	}
-
-	public String getCorreo() {
-		return this.correo;
-	}
-
-	public void setCorreo(String correo) {
-		this.correo = correo;
-	}
-
-	public String getFechaNacimiento() {
-		return this.fechaNacimiento;
-	}
-
-	public void setFechaNacimiento(String fechaNacimiento) {
-		this.fechaNacimiento = fechaNacimiento;
 	}
 
 	public int getId() {
@@ -67,12 +44,58 @@ public class Usuario implements Serializable {
 		this.id = id;
 	}
 
+	public String getContraseña() {
+		return this.contraseña;
+	}
+
+	public void setContraseña(String contraseña) {
+		this.contraseña = contraseña;
+	}
+
+	public String  getCorreo() {
+		return this.email;
+	}
+
+	public void setEmail(String  email) {
+		this.email = email;
+	}
+
+	public Date getFechaNacimiento() {
+		return this.fechaNacimiento;
+	}
+
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+
 	public String getNombre() {
 		return this.nombre;
 	}
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	public List<Equipo> getEquipos() {
+		return this.equipos;
+	}
+
+	public void setEquipos(List<Equipo> equipos) {
+		this.equipos = equipos;
+	}
+
+	public Equipo addEquipo(Equipo equipo) {
+		getEquipos().add(equipo);
+		equipo.setUsuario(this);
+
+		return equipo;
+	}
+
+	public Equipo removeEquipo(Equipo equipo) {
+		getEquipos().remove(equipo);
+		equipo.setUsuario(null);
+
+		return equipo;
 	}
 
 }

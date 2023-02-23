@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import model.Foto;
 @Service
-public interface FotoJpaSpring extends JpaRepository<Foto,Integer>{
+public interface AboutUsJpaSpring extends JpaRepository<Foto,Integer>{
 	@Query(value = "Select * FROM Foto Where Nombre Like %:nombre% ", nativeQuery = true)
 	List<Foto> findIntegrante(@Param ("nombre") String nombre);
 	@Query(value = "INSERT INTO 'Foto'(`Nombre`, `Especializacion`, `Informacion`, `Foto`) VALUES (:nombre,:especializacion,:informacion,:foto)", nativeQuery = true)

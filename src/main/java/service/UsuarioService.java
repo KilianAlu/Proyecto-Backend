@@ -1,5 +1,7 @@
 package service;
 
+
+import java.util.Date;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -16,7 +18,7 @@ public interface UsuarioService {
 	boolean exEmail(String nombre);
 	String cNombre(int id,String nNombre);
 	String cEmail(int id,String nEmail);
-	String cFechaNacimiento(int id,String nFecha);
+	String cFechaNacimiento(int id,Date nFecha);
 	String cContrasena(int id,String nContrasena);
 	boolean compContrasena(int id,String contrasena);
 }

@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.Date;
 import java.util.Optional;
 
 import javax.persistence.EntityManager;
@@ -90,7 +91,7 @@ public class UsuarioDaoImpl implements UsuarioDao{
 	
 	@Transactional
 	@Override
-	public String cambiarFechaNacimiento(int id, String nFecha) {
+	public String cambiarFechaNacimiento(int id, Date nFecha) {
 		// TODO Auto-generated method stub
 		Jpa.cambiarFechaNacimiento(id, nFecha);
 		return "la fecha ha sido cambiado";

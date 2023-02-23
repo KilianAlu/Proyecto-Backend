@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.Date;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -31,7 +33,7 @@ public interface UsuarioJpaSpring extends JpaRepository<Usuario, Integer> {
 	void cambiarEmail(@Param("id") int id,@Param("email") String nEmail );
 	@Modifying
 	@Query(value = "Update usuario set fechaNacimiento = :fechaNacimiento where id = :id", nativeQuery = true)
-	void cambiarFechaNacimiento(@Param("id") int id,@Param("fechaNacimiento") String nFecha);
+	void cambiarFechaNacimiento(@Param("id") int id,@Param("fechaNacimiento") Date nFecha);
 	@Modifying
 	@Query(value = "Update usuario set contraseña = :contrasena where id = :id", nativeQuery = true)
 	void cambiarContrasena(@Param("id") int id,@Param("contrasena") String nContrasena);

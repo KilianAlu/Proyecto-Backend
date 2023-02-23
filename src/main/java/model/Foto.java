@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 
 /**
- * The persistent class for the Foto database table.
+ * The persistent class for the foto database table.
  * 
  */
 @Entity
@@ -15,26 +15,21 @@ public class Foto implements Serializable {
 
 	@Id
 	@SequenceGenerator(name="FOTO_ID_GENERATOR" )
-	@GeneratedValue(strategy=GenerationType.IDENTITY, generator="FOTO_ID_GENERATOR")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="FOTO_ID_GENERATOR")
 	private int id;
-	
-	private String nombre;
-	
+
 	private String especializacion;
-	
-	@Lob
-	private String informacion;
-	
+
 	@Lob
 	private String foto;
 
-	
+	@Lob
+	private String informacion;
 
-	
+	private String nombre;
 
 	public Foto() {
 	}
-
 
 	public int getId() {
 		return this.id;

@@ -7,10 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RestController;
 
-import service.PaginaInicioService;
+import service.AboutUsService;
+import service.JugadorService;
 import service.UsuarioService;
 import model.Foto;
-import model.PaginaInicial;
+import model.Jugador;
 import model.Usuario;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -31,24 +32,36 @@ import org.springframework.http.ResponseEntity;
 @RestController
 public class PrincipalController {
 	@Autowired
-	PaginaInicioService service;
+	AboutUsService service;
 	@Autowired
 	UsuarioService usuarios;
+	@Autowired
+	JugadorService jugador;
 	/*
 	 * @GetMapping(value="AboutUs",produces=MediaType.APPLICATION_JSON_VALUE) public
 	 * String aboutUs() { return service.aboutUs();
 	 */
 
-	@GetMapping(value = "Prueba/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody Optional<PaginaInicial> prueba(@PathVariable String id) {
-		return service.pruebaService(id);
-
-	}
 
 	@GetMapping(value = "Integrantes", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Foto> integrantes() {
 		return service.getIntegrantesService();
 	}
+	
+	@GetMapping(value = "Integrantes/{nombre}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody List<Foto> integrantesNombre(@PathVariable String nombre) {
+		return service.getIntegrantesNombreService(nombre);
+	}
+	
+	@GetMapping (value = "getJugadores/{idEquipo}" ,produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody List<Jugador> jugadores(@PathVariable int idEquipo){
+		return jugador.getJugadores(idEquipo);	
+		}
+	@PostMapping(value = "añadirJugador", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public void añadirJugador(@RequestBody Jugador ajugador) {
+		jugador.añadirJugador(ajugador);
+	}
+	
 
 //	@PostMapping(value="CrearUsuario", consumes=MediaType.APPLICATION_JSON_VALUE)
 //	public String crearUsuario(@RequestBody Usuario usuario) {
@@ -104,7 +117,7 @@ public class PrincipalController {
 		return new ResponseEntity<Boolean>(usuarios.exUsuario(login.getNombre(), login.getContraseña()), HttpStatus.OK);
 
 	}
-	@PutMapping(value = "cNombre" , produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "cNombre" , produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String>cNombre(@RequestBody Usuario usuario){
 		final HttpHeaders httpHeaders = new HttpHeaders();
 		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
@@ -147,29 +160,21 @@ public class PrincipalController {
 
 	}
 
-	@GetMapping(value = "Integrantes/{nombre}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody List<Foto> integrantesNombre(@PathVariable String nombre) {
-		return service.getIntegrantesNombreService(nombre);
-	}
-
-	@RequestMapping(value = "AboutUs", method = RequestMethod.GET, produces = "application/json")
-	public ResponseEntity<String> aboutUs() {
-		final HttpHeaders httpHeaders = new HttpHeaders();
-		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
-		return new ResponseEntity<String>(
-				"{\"About Us\": \"Somos " + service.aboutUs() + " y estamos haciendo una aplicacion\"}", httpHeaders,
-				HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "Contacto", method = RequestMethod.GET, produces = "application/json")
-	public ResponseEntity<String> Contacto() {
-		String[] contacto = service.contacto();
-		contacto = contacto[0].split(",");
-		final HttpHeaders httpHeaders = new HttpHeaders();
-		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
-		return new ResponseEntity<String>(
-				"{\"Email\": \"" + contacto[0] + "\"" + "\n" + "\"Telefono\": \"" + contacto[1] + "\"}", httpHeaders,
-				HttpStatus.OK);
-	}
-
+	
+	/*
+	 * @RequestMapping(value = "AboutUs", method = RequestMethod.GET, produces =
+	 * "application/json") public ResponseEntity<String> aboutUs() { final
+	 * HttpHeaders httpHeaders = new HttpHeaders();
+	 * httpHeaders.setContentType(MediaType.APPLICATION_JSON); return new
+	 * ResponseEntity<String>( "{\"About Us\": \"Somos " + service.aboutUs() +
+	 * " y estamos haciendo una aplicacion\"}", httpHeaders, HttpStatus.OK); }
+	 * 
+	 * @RequestMapping(value = "Contacto", method = RequestMethod.GET, produces =
+	 * "application/json") public ResponseEntity<String> Contacto() { String[]
+	 * contacto = service.contacto(); contacto = contacto[0].split(","); final
+	 * HttpHeaders httpHeaders = new HttpHeaders();
+	 * httpHeaders.setContentType(MediaType.APPLICATION_JSON); return new
+	 * ResponseEntity<String>( "{\"Email\": \"" + contacto[0] + "\"" + "\n" +
+	 * "\"Telefono\": \"" + contacto[1] + "\"}", httpHeaders, HttpStatus.OK); }
+	 */
 }

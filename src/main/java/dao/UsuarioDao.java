@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.Date;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -17,7 +18,7 @@ public interface UsuarioDao {
 	int existeEmail(String email);
 	String cambiarNombre(int id,String nNombre);
 	String cambiarEmail(int id,String nEmail);
-	String cambiarFechaNacimiento(int id,String nFecha);
+	String cambiarFechaNacimiento(int id,Date nFecha);
 	String cambiarContrasena(int id,String nContrasena);
 	int comprobarContrasena(int id,String contrasena);
 }

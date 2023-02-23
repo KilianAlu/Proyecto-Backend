@@ -1,5 +1,7 @@
 package service;
 
+
+import java.util.Date;
 import java.util.Optional;
 
 import org.apache.commons.codec.digest.DigestUtils;
@@ -98,7 +100,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 	}
 
 	@Override
-	public String cFechaNacimiento(int id, String nFecha) {
+	public String cFechaNacimiento(int id, Date nFecha) {
 		// TODO Auto-generated method stub
 		return Dao.cambiarFechaNacimiento(id,nFecha);
 	}
