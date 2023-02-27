@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 27-02-2023 a las 15:48:00
+-- Tiempo de generación: 27-02-2023 a las 16:16:26
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `basketball_coach`
 --
+CREATE DATABASE IF NOT EXISTS `basketball_coach` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `basketball_coach`;
 
 -- --------------------------------------------------------
 
