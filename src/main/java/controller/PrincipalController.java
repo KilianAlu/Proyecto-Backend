@@ -151,6 +151,15 @@ public class PrincipalController {
 				"{\"Respuesta\": \" " + usuarios.cContrasena(usuario.getId(), usuario.getContraseña()) + "\"}", httpHeaders,
 				HttpStatus.OK);
 	}
+	@PutMapping(value = "cFoto" , produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<String>cFoto(@RequestBody Usuario usuario){
+		final HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+		return new ResponseEntity<String>(
+				"{\"Respuesta\": \" " + usuarios.cFoto(usuario.getId(), usuario.getFoto()) + "\"}", httpHeaders,
+				HttpStatus.OK);
+	}
+	
 	
 	@PostMapping(value = "compContrasena",consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Boolean> compContraseña(@RequestBody Usuario usuario) {

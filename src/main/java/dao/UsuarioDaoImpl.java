@@ -23,11 +23,12 @@ public class UsuarioDaoImpl implements UsuarioDao{
 	@Transactional
 	@Override
 	public void añadirUsuario(Usuario usuario) {
-		 entityManager.createNativeQuery("INSERT INTO `usuario`(`nombre`, `contraseña`, `correo`, `fechaNacimiento`) VALUES (?,?,?,?)")
+		 entityManager.createNativeQuery("INSERT INTO `usuario`(`nombre`, `contraseña`, `correo`, `fechaNacimiento`,`foto` VALUES (?,?,?,?,?)")
 	      .setParameter(1, usuario.getNombre())
 	      .setParameter(2, DigestUtils.md5Hex(usuario.getContraseña()))
 	      .setParameter(3, usuario.getCorreo())
 	      .setParameter(4, usuario.getFechaNacimiento())
+	      .setParameter(5, "10.0.2.2/php/usuario.png")
 	      .executeUpdate();
 	}
 
@@ -106,9 +107,18 @@ public class UsuarioDaoImpl implements UsuarioDao{
 	}
 
 	@Override
+	public String cambiarFoto(int id, String nFoto) {
+		// TODO Auto-generated method stub
+	    Jpa.cambiarFoto(id,nFoto);
+		return "La foto ha sido cambiada";
+	}
+	
+	@Override
 	public int comprobarContrasena(int id, String contrasena) {
 		// TODO Auto-generated method stub
 		return Jpa.comprobarContrasena(contrasena,id);
 	}
+
+	
 
 }

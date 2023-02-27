@@ -110,6 +110,12 @@ public class UsuarioServiceImpl implements UsuarioService {
 		// TODO Auto-generated method stub
 		return Dao.cambiarContrasena(id, DigestUtils.md5Hex(nContrasena));
 	}
+	
+	@Override
+	public String cFoto(int id, String nFoto) {
+		// TODO Auto-generated method stub
+		return Dao.cambiarFoto(id,nFoto);
+	}
 
 	@Override
 	public boolean compContrasena(int id,String contrasena) {
@@ -122,5 +128,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 		}
 		
 	}
+
+
 
 }

@@ -32,6 +32,9 @@ public class Usuario implements Serializable {
 	//bi-directional many-to-one association to Equipo
 	@OneToMany(mappedBy="usuario")
 	private List<Equipo> equipos;
+	
+	@Lob
+	private String foto;
 
 	public Usuario() {
 	}
@@ -96,6 +99,14 @@ public class Usuario implements Serializable {
 		equipo.setUsuario(null);
 
 		return equipo;
+	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
 
 }
