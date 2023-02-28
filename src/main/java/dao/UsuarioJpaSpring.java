@@ -20,7 +20,7 @@ public interface UsuarioJpaSpring extends JpaRepository<Usuario, Integer> {
 	@Query(value = "SELECT EXISTS(SELECT * FROM `usuario` WHERE nombre = :nombre AND contraseña = :contrasena)", nativeQuery = true)
 	int existeUsuario(@Param("nombre") String nombre, @Param("contrasena") String contrasena);
 	
-	@Query(value = "SELECT EXISTS(SELECT * FROM `usuario` WHERE correo = :correo)", nativeQuery = true)
+	@Query(value = "SELECT EXISTS(SELECT * FROM `usuario` WHERE email = :email)", nativeQuery = true)
 	int existeEmail(@Param("correo") String email);
 	@Query(value = "SELECT EXISTS(SELECT * FROM `usuario` WHERE nombre = :nombre)", nativeQuery = true)
 	int existNombre(@Param("nombre") String nombre);
@@ -29,7 +29,7 @@ public interface UsuarioJpaSpring extends JpaRepository<Usuario, Integer> {
 	@Query(value = "Update usuario set nombre = :nombre where id = :id", nativeQuery = true)
 	void cambiarNombre(@Param("id") int id,@Param("nombre") String nNombre);
 	@Modifying
-	@Query(value = "Update usuario set correo = :email where id = :id", nativeQuery = true)
+	@Query(value = "Update usuario set email= :email where id = :id", nativeQuery = true)
 	void cambiarEmail(@Param("id") int id,@Param("email") String nEmail );
 	@Modifying
 	@Query(value = "Update usuario set fechaNacimiento = :fechaNacimiento where id = :id", nativeQuery = true)
