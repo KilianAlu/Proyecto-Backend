@@ -23,7 +23,7 @@ public class UsuarioDaoImpl implements UsuarioDao{
 	@Transactional
 	@Override
 	public void añadirUsuario(Usuario usuario) {
-		 entityManager.createNativeQuery("INSERT INTO `usuario`(`nombre`, `contraseña`, `correo`, `fechaNacimiento`,`foto` VALUES (?,?,?,?,?)")
+		 entityManager.createNativeQuery("INSERT INTO `usuario`(`nombre`, `contraseña`, `email`, `fechaNacimiento`,`foto`) VALUES (?,?,?,?,?)")
 	      .setParameter(1, usuario.getNombre())
 	      .setParameter(2, DigestUtils.md5Hex(usuario.getContraseña()))
 	      .setParameter(3, usuario.getCorreo())
