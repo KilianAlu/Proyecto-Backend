@@ -28,7 +28,7 @@ public class UsuarioDaoImpl implements UsuarioDao{
 	      .setParameter(2, DigestUtils.md5Hex(usuario.getContraseña()))
 	      .setParameter(3, usuario.getEmail())
 	      .setParameter(4, usuario.getFechaNacimiento())
-	      .setParameter(5, "10.0.2.2/php/usuario.png")
+	      .setParameter(5, "http://10.0.2.2/php/usuario.png")
 	      .executeUpdate();
 	} 
 

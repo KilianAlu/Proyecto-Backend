@@ -59,6 +59,7 @@ public class PrincipalController {
 		}
 	@PostMapping(value = "añadirJugador", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public void añadirJugador(@RequestBody Jugador ajugador) {
+		//return ajugador;
 		jugador.añadirJugador(ajugador);
 	}
 	

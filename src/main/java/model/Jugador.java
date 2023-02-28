@@ -41,7 +41,7 @@ public class Jugador implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name="idEquipo")
-	@JsonBackReference
+	//@JsonBackReference
 	private Equipo equipo;
 
 	public Jugador() {
