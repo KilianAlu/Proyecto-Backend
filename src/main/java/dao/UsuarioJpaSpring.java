@@ -43,5 +43,5 @@ public interface UsuarioJpaSpring extends JpaRepository<Usuario, Integer> {
 	
 	@Modifying
 	@Query(value = "Update usuario set Foto = :Foto where id = :id", nativeQuery = true)
-	String cambiarFoto(@Param("id")int id, @Param("Foto")String nFoto);
+	void cambiarFoto(@Param("id")int id, @Param("Foto")String nFoto);
 }

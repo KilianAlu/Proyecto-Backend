@@ -105,7 +105,7 @@ public class UsuarioDaoImpl implements UsuarioDao{
 		Jpa.cambiarContrasena(id, nContrasena);
 		return "La Contraseña ha sido cambiada";
 	}
-
+	@Transactional
 	@Override
 	public String cambiarFoto(int id, String nFoto) {
 		// TODO Auto-generated method stub
