@@ -106,7 +106,7 @@ public class PrincipalController {
 	public ResponseEntity<Boolean> exEmail(@RequestBody Usuario email) {
 		final HttpHeaders httpHeaders = new HttpHeaders();
 		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
-		return new ResponseEntity<Boolean>(usuarios.exEmail(email.getCorreo()), HttpStatus.OK);
+		return new ResponseEntity<Boolean>(usuarios.exEmail(email.getEmail()), HttpStatus.OK);
 
 	}
 
@@ -130,7 +130,7 @@ public class PrincipalController {
 		final HttpHeaders httpHeaders = new HttpHeaders();
 		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
 		return new ResponseEntity<String>(
-				"{\"Respuesta\": \" " + usuarios.cEmail(usuario.getId(), usuario.getCorreo()) + "\"}", httpHeaders,
+				"{\"Respuesta\": \" " + usuarios.cEmail(usuario.getId(), usuario.getEmail()) + "\"}", httpHeaders,
 				HttpStatus.OK);
 	}
 	

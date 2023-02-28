@@ -26,11 +26,11 @@ public class UsuarioDaoImpl implements UsuarioDao{
 		 entityManager.createNativeQuery("INSERT INTO `usuario`(`nombre`, `contraseña`, `email`, `fechaNacimiento`,`foto`) VALUES (?,?,?,?,?)")
 	      .setParameter(1, usuario.getNombre())
 	      .setParameter(2, DigestUtils.md5Hex(usuario.getContraseña()))
-	      .setParameter(3, usuario.getCorreo())
+	      .setParameter(3, usuario.getEmail())
 	      .setParameter(4, usuario.getFechaNacimiento())
 	      .setParameter(5, "10.0.2.2/php/usuario.png")
 	      .executeUpdate();
-	}
+	} 
 
 	@Transactional
 	@Override

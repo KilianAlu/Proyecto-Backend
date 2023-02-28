@@ -21,7 +21,7 @@ public interface UsuarioJpaSpring extends JpaRepository<Usuario, Integer> {
 	int existeUsuario(@Param("nombre") String nombre, @Param("contrasena") String contrasena);
 	
 	@Query(value = "SELECT EXISTS(SELECT * FROM `usuario` WHERE email = :email)", nativeQuery = true)
-	int existeEmail(@Param("correo") String email);
+	int existeEmail(@Param("email") String email);
 	@Query(value = "SELECT EXISTS(SELECT * FROM `usuario` WHERE nombre = :nombre)", nativeQuery = true)
 	int existNombre(@Param("nombre") String nombre);
 	

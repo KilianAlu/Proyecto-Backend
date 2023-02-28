@@ -55,7 +55,7 @@ public class Usuario implements Serializable {
 		this.contraseña = contraseña;
 	}
 
-	public String  getCorreo() {
+	public String  getEmail() {
 		return this.email;
 	}
 
