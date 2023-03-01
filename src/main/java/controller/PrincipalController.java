@@ -57,7 +57,7 @@ public class PrincipalController {
 	public @ResponseBody List<Jugador> jugadores(@PathVariable int idEquipo){
 		return jugador.getJugadores(idEquipo);	
 		}
-	@PostMapping(value = "añadirJugador", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "anadirJugador", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> añadirJugador(@RequestBody Jugador ajugador) {
 		//return ajugador;
 		jugador.añadirJugador(ajugador);
