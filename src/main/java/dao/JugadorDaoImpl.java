@@ -27,7 +27,7 @@ public class JugadorDaoImpl implements JugadorDao{
 		.setParameter(3, jugador.getSalud())
 		.setParameter(4, jugador.getRol())
 		.setParameter(5, jugador.getManoDominante())
-		.setParameter(6, jugador.getFoto())
+		.setParameter(6, "http://10.0.2.2/php/usuario.png")
 		.setParameter(7, jugador.getPosicion())
 		.setParameter(8, jugador.getDorsal())
 		.setParameter(9, jugador.getAltura())
