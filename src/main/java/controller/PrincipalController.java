@@ -58,9 +58,13 @@ public class PrincipalController {
 		return jugador.getJugadores(idEquipo);	
 		}
 	@PostMapping(value = "añadirJugador", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public void añadirJugador(@RequestBody Jugador ajugador) {
+	public ResponseEntity<String> añadirJugador(@RequestBody Jugador ajugador) {
 		//return ajugador;
 		jugador.añadirJugador(ajugador);
+		final HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+		return new ResponseEntity<String>("{\"Respuesta\": \"El Jugador Ha sido añadido\"}", httpHeaders,
+				HttpStatus.OK);
 	}
 	
 
