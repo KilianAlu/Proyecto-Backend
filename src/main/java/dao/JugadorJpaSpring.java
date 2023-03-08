@@ -15,4 +15,7 @@ public interface JugadorJpaSpring extends JpaRepository<Jugador,Integer>{
 	@Query(value = "Select * FROM Jugador Where idEquipo = :idEquipo", nativeQuery = true)
 	List<Jugador> getJugadores(@Param ("idEquipo") int idEquipo);
 
+	@Query(value = "Select * FROM Jugador Where idEquipo = :idEquipo AND nombre LIKE %:nombre%" , nativeQuery = true)
+	List<Jugador> buscarJugador(@Param("idEquipo") int idEquipo,@Param ("nombre")String nombre);
+
 }

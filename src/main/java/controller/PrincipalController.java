@@ -67,6 +67,11 @@ public class PrincipalController {
 				HttpStatus.OK);
 	}
 	
+	@GetMapping(value = "buscarJugador/{nombre}/{idEquipo}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Jugador> buscarJugador(@PathVariable String nombre, @PathVariable int idEquipo){
+		return jugador.buscarJugador(idEquipo,nombre);
+				}
+	
 
 //	@PostMapping(value="CrearUsuario", consumes=MediaType.APPLICATION_JSON_VALUE)
 //	public String crearUsuario(@RequestBody Usuario usuario) {

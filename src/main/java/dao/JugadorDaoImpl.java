@@ -42,4 +42,10 @@ public class JugadorDaoImpl implements JugadorDao{
 		return Jpa.getJugadores(idEquipo);
 	}
 
+	@Override
+	public List<Jugador> buscarJugador(int idEquipo,String nombre) {
+		// TODO Auto-generated method stub
+		return Jpa.buscarJugador(idEquipo,nombre);
+	}
+
 }

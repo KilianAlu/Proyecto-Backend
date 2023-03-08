@@ -10,4 +10,6 @@ public interface JugadorDao {
 
 	List<Jugador> getJugadores(int idEquipo);
 
+	List<Jugador> buscarJugador(int idEquipo,String nombre);
+
 }
