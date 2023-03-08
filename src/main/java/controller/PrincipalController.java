@@ -127,7 +127,7 @@ public class PrincipalController {
 		return new ResponseEntity<Boolean>(usuarios.exUsuario(login.getNombre(), login.getContraseña()), HttpStatus.OK);
 
 	}
-	@PostMapping(value = "cNombre" , produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
+	@PutMapping(value = "cNombre" , produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String>cNombre(@RequestBody Usuario usuario){
 		final HttpHeaders httpHeaders = new HttpHeaders();
 		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
