@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RestController;
 
-import service.AboutUsService;
-import service.JugadorService;
 import service.UsuarioService;
+import service.aboutus.AboutUsService;
+import service.jugador.JugadorService;
 import model.Foto;
 import model.Jugador;
 import model.Usuario;

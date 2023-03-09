@@ -1,4 +1,4 @@
-package service;
+package service.jugador;
 
 import java.util.List;
 

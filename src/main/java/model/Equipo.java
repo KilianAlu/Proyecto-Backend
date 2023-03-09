@@ -20,6 +20,8 @@ public class Equipo implements Serializable {
 	private int id;
 
 	private String nombre;
+	
+	private String Foto;
 
 	//bi-directional many-to-one association to Usuario
 	@ManyToOne
@@ -59,6 +61,14 @@ public class Equipo implements Serializable {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+	public String getFoto() {
+		return Foto;
+	}
+
+	public void setFoto(String foto) {
+		Foto = foto;
 	}
 
 	public List<Jugador> getJugadors() {
