@@ -1,4 +1,4 @@
-package service.aboutus;
+package service;
 
 import java.util.List;
 

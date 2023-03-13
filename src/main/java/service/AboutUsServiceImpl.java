@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import dao.AboutUsDao;
 import model.Foto;
-import service.aboutus.AboutUsService;
 @Service
 public class AboutUsServiceImpl implements AboutUsService{
 	@Autowired

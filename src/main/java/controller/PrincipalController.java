@@ -7,9 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RestController;
 
+import model.dto.EquipoDto;
+import service.AboutUsService;
+import service.EquipoService;
 import service.UsuarioService;
-import service.aboutus.AboutUsService;
 import service.jugador.JugadorService;
+import model.Equipo;
 import model.Foto;
 import model.Jugador;
 import model.Usuario;
@@ -37,6 +40,8 @@ public class PrincipalController {
 	UsuarioService usuarios;
 	@Autowired
 	JugadorService jugador;
+	@Autowired
+	EquipoService equipo;
 	/*
 	 * @GetMapping(value="AboutUs",produces=MediaType.APPLICATION_JSON_VALUE) public
 	 * String aboutUs() { return service.aboutUs();
@@ -66,6 +71,17 @@ public class PrincipalController {
 		return new ResponseEntity<String>("{\"Respuesta\": \"El Jugador Ha sido añadido\"}", httpHeaders,
 				HttpStatus.OK);
 	}
+	
+
+@PostMapping(value = "anadirEquipo", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+public ResponseEntity<String> añadirEquipo(@RequestBody EquipoDto  aEquipo) {
+	//return ajugador;
+	equipo.anadirEquipo(aEquipo);
+	final HttpHeaders httpHeaders = new HttpHeaders();
+	httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+	return new ResponseEntity<String>("{\"Respuesta\": \"El Equipo Ha sido añadido\"}", httpHeaders,
+			HttpStatus.OK);
+}
 	
 	@GetMapping(value = "buscarJugador/{nombre}/{idEquipo}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Jugador> buscarJugador(@PathVariable String nombre, @PathVariable int idEquipo){
@@ -178,6 +194,15 @@ public class PrincipalController {
 		return new ResponseEntity<Boolean>(usuarios.compContrasena(usuario.getId(),usuario.getContraseña()), HttpStatus.OK);
 
 	}
+	
+//	@PutMapping(value="cAlturaJugador",consumes = MediaType.APPLICATION_JSON_VALUE)
+//		public ResponseEntity<String> cAlturaJugador(@RequestBody Jugador juagdor){
+//		final HttpHeaders httpHeaders = new HttpHeaders();
+//		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+//		return new "{\"Respuesta\": \" la Altura ha sido cambiada \"}", httpHeaders,
+//				HttpStatus.OK);
+//		}
+//	}
 
 	
 	/*
