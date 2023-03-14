@@ -4,19 +4,10 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RestController;
-
-import model.dto.EquipoDto;
-import service.AboutUsService;
-import service.EquipoService;
-import service.UsuarioService;
-import service.jugador.JugadorService;
-import model.Equipo;
-import model.Foto;
-import model.Jugador;
-import model.Usuario;
-
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,12 +15,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RestController;
+
+import model.Foto;
+import model.Jugador;
+import model.Usuario;
+import model.dto.EquipoDto;
+import service.AboutUsService;
+import service.EquipoService;
+import service.UsuarioService;
+import service.jugador.JugadorService;
 
 @CrossOrigin(origins = "*") // permite recibir peticiones desde cualquier origen
 @RestController
@@ -40,8 +36,6 @@ public class PrincipalController {
 	UsuarioService usuarios;
 	@Autowired
 	JugadorService jugador;
-	@Autowired
-	EquipoService equipo;
 	/*
 	 * @GetMapping(value="AboutUs",produces=MediaType.APPLICATION_JSON_VALUE) public
 	 * String aboutUs() { return service.aboutUs();
@@ -58,35 +52,7 @@ public class PrincipalController {
 		return service.getIntegrantesNombreService(nombre);
 	}
 	
-	@GetMapping (value = "getJugadores/{idEquipo}" ,produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody List<Jugador> jugadores(@PathVariable int idEquipo){
-		return jugador.getJugadores(idEquipo);	
-		}
-	@PostMapping(value = "anadirJugador", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<String> añadirJugador(@RequestBody Jugador ajugador) {
-		//return ajugador;
-		jugador.añadirJugador(ajugador);
-		final HttpHeaders httpHeaders = new HttpHeaders();
-		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
-		return new ResponseEntity<String>("{\"Respuesta\": \"El Jugador Ha sido añadido\"}", httpHeaders,
-				HttpStatus.OK);
-	}
 	
-
-@PostMapping(value = "anadirEquipo", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-public ResponseEntity<String> añadirEquipo(@RequestBody EquipoDto  aEquipo) {
-	//return ajugador;
-	equipo.anadirEquipo(aEquipo);
-	final HttpHeaders httpHeaders = new HttpHeaders();
-	httpHeaders.setContentType(MediaType.APPLICATION_JSON);
-	return new ResponseEntity<String>("{\"Respuesta\": \"El Equipo Ha sido añadido\"}", httpHeaders,
-			HttpStatus.OK);
-}
-	
-	@GetMapping(value = "buscarJugador/{nombre}/{idEquipo}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Jugador> buscarJugador(@PathVariable String nombre, @PathVariable int idEquipo){
-		return jugador.buscarJugador(idEquipo,nombre);
-				}
 	
 
 //	@PostMapping(value="CrearUsuario", consumes=MediaType.APPLICATION_JSON_VALUE)

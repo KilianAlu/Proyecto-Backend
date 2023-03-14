@@ -29,4 +29,16 @@ public class EquipoDaoImpl implements EquipoDao{
 		.executeUpdate();
 	}
 
+	@Override
+	public void cambiarNombre(int id, String nombre) {
+		// TODO Auto-generated method stub
+		jpa.cambiarNombre(id,nombre);
+	}
+
+	@Override
+	public void cambiarFoto(int id, String foto) {
+		// TODO Auto-generated method stub
+		jpa.cambiarFoto(id, foto);
+	}
+
 }

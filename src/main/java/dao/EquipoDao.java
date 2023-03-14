@@ -6,4 +6,7 @@ public interface EquipoDao {
 
 	void anadirEquipo(EquipoDto aEquipo);
 
+	void cambiarNombre(int id, String nombre);
+	void cambiarFoto(int id, String foto);
+
 }

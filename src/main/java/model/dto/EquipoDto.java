@@ -4,6 +4,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class EquipoDto {
+	
+	private int id;
 
 	private String nombre;
 
@@ -33,6 +35,14 @@ public class EquipoDto {
 
 	public void setFoto(String foto) {
 		Foto = foto;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }

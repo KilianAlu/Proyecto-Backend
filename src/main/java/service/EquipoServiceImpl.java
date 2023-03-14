@@ -18,4 +18,16 @@ public class EquipoServiceImpl implements EquipoService{
 		dao.anadirEquipo(aEquipo);
 	}
 
+	@Override
+	public void cNombre(int id, String nombre) {
+		// TODO Auto-generated method stub
+		dao.cambiarNombre(id,nombre);
+	}
+
+	@Override
+	public void cFoto(int id, String foto) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
