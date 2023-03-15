@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -16,5 +18,8 @@ public interface EquipoJpaSpring extends JpaRepository<Equipo,Integer>{
 	@Modifying
 	@Query(value = " `UPDATE` SET `Foto` = :foto  WHERE id = :id", nativeQuery = true)
 	void cambiarFoto(@Param("id")int id, @Param("foto")String foto);
+
+	@Query(value = "Select * from Equipo",nativeQuery = true)
+	List<Equipo> getEquipos();
 
 }

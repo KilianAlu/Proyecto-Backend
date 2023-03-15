@@ -10,4 +10,6 @@ public interface JugadorService {
 	void añadirJugador(Jugador jugador);
 	List<Jugador> getJugadores(int idEquipo);
 	List<Jugador> buscarJugador(int idEquipo,String nombre);
+	void cNombreJugador(int id,String nombre);
+	void cApellidoJugador(int id, String apellido);
 }

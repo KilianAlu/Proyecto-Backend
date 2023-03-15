@@ -10,17 +10,17 @@ import model.Jugador;
 @Service
 public class JugadorServiceImpl implements JugadorService {
 	@Autowired
-	JugadorDao Dao;
+	JugadorDao dao;
 	@Override
 	public void añadirJugador(Jugador jugador) {
 		// TODO Auto-generated method stub
 		System.out.println(jugador.getEquipo());
-		Dao.añadirJugador(jugador);
+		dao.añadirJugador(jugador);
 	}
 
 	@Override
 	public List<Jugador> getJugadores(int idEquipo) {
-		return Dao.getJugadores(idEquipo);
+		return dao.getJugadores(idEquipo);
 		// TODO Auto-generated method stub
 		
 	}
@@ -28,7 +28,19 @@ public class JugadorServiceImpl implements JugadorService {
 	@Override
 	public List<Jugador> buscarJugador(int idEquipo, String nombre) {
 		// TODO Auto-generated method stub
-		return Dao.buscarJugador(idEquipo,nombre);
+		return dao.buscarJugador(idEquipo,nombre);
+	}
+
+	@Override
+	public void cNombreJugador(int id, String nombre) {
+		// TODO Auto-generated method stub
+		dao.cambiarNombreJugador(id,nombre);
+	}
+
+	@Override
+	public void cApellidoJugador(int id, String apellido) {
+		// TODO Auto-generated method stub
+		dao.cambiarApellidoJugador(id,apellido);
 	}
 	
 }

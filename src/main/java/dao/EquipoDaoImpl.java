@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -7,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import model.Equipo;
 import model.dto.EquipoDto;
 
 
@@ -39,6 +42,12 @@ public class EquipoDaoImpl implements EquipoDao{
 	public void cambiarFoto(int id, String foto) {
 		// TODO Auto-generated method stub
 		jpa.cambiarFoto(id, foto);
+	}
+
+	@Override
+	public List<Equipo> getEquipos() {
+		// TODO Auto-generated method stub
+		return jpa.getEquipos();
 	}
 
 }

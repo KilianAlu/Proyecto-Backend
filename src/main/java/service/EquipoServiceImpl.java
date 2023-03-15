@@ -1,9 +1,12 @@
 package service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import dao.EquipoDao;
+import model.Equipo;
 import model.dto.EquipoDto;
 
 @Service
@@ -28,6 +31,12 @@ public class EquipoServiceImpl implements EquipoService{
 	public void cFoto(int id, String foto) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public List<Equipo> getEquipos() {
+		// TODO Auto-generated method stub
+		return dao.getEquipos();
 	}
 
 }

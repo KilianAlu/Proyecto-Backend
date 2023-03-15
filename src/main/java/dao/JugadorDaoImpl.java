@@ -48,4 +48,17 @@ public class JugadorDaoImpl implements JugadorDao{
 		return Jpa.buscarJugador(idEquipo,nombre);
 	}
 
+	@Transactional
+	@Override
+	public void cambiarNombreJugador(int id, String nombre) {
+		// TODO Auto-generated method stub
+		Jpa.cambiarNombreJugador(id,nombre);
+	}
+
+	@Override
+	public void cambiarApellidoJugador(int id, String apellido) {
+		// TODO Auto-generated method stub
+		Jpa.cambiarApellidoJugador(id,apellido);
+	}
+
 }

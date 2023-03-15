@@ -1,5 +1,8 @@
 package dao;
 
+import java.util.List;
+
+import model.Equipo;
 import model.dto.EquipoDto;
 
 public interface EquipoDao {
@@ -8,5 +11,7 @@ public interface EquipoDao {
 
 	void cambiarNombre(int id, String nombre);
 	void cambiarFoto(int id, String foto);
+
+	List<Equipo> getEquipos();
 
 }

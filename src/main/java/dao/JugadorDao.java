@@ -12,4 +12,8 @@ public interface JugadorDao {
 
 	List<Jugador> buscarJugador(int idEquipo,String nombre);
 
+	void cambiarNombreJugador(int id, String nombre);
+
+	void cambiarApellidoJugador(int id, String apellido);
+
 }
