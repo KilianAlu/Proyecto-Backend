@@ -16,4 +16,16 @@ public interface JugadorDao {
 
 	void cambiarApellidoJugador(int id, String apellido);
 
+	void cambiarRolJugador(int id, String rol);
+
+	void cambiarManoJugador(int id, String manoDominante);
+
+	void cambiarFotoJugador(int id, String foto);
+
+	void cambiarPosicionJugador(int id, String posicion);
+
+	void cambiarDorsalJugador(int id, int dorsal);
+
+	void cambiarEquipoJugador(int id, int id2);
+
 }

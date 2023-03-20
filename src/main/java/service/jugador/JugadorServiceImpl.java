@@ -42,5 +42,41 @@ public class JugadorServiceImpl implements JugadorService {
 		// TODO Auto-generated method stub
 		dao.cambiarApellidoJugador(id,apellido);
 	}
+
+	@Override
+	public void cRolJugador(int id, String rol) {
+		// TODO Auto-generated method stub
+		dao.cambiarRolJugador(id,rol);
+	}
+
+	@Override
+	public void cManoJugador(int id, String manoDominante) {
+		// TODO Auto-generated method stub
+		dao.cambiarManoJugador(id, manoDominante);
+	}
+
+	@Override
+	public void cFotoJugador(int id, String foto) {
+		// TODO Auto-generated method stub
+		dao.cambiarFotoJugador(id,foto);
+	}
+
+	@Override
+	public void cPosicionJugador(int id, String posicion) {
+		// TODO Auto-generated method stub
+		dao.cambiarPosicionJugador(id, posicion);
+	}
+
+	@Override
+	public void cDorsalJugador(int id, int dorsal) {
+		// TODO Auto-generated method stub
+		dao.cambiarDorsalJugador(id, dorsal);
+	}
+
+	@Override
+	public void cEquipoJugador(int id, int id2) {
+		// TODO Auto-generated method stub
+		dao.cambiarEquipoJugador(id,id2);
+	}
 	
 }

@@ -25,7 +25,30 @@ public interface JugadorJpaSpring extends JpaRepository<Jugador,Integer>{
 
 	@Transactional
 	@Query(value = "Update jugador set apellido = :apellido where id = :id")
-	void cambiarApellidoJugador(@Param("id")int id, @Param("nombre")String apellido);
+	void cambiarApellidoJugador(@Param("id")int id, @Param("apellido")String apellido);
 
+	@Transactional
+	@Query(value = "Update jugador set rol = :rol where id = :id")
+	void cambiarRolJugador(@Param("id")int id, @Param("rol")String rol);
+
+	@Transactional
+	@Query(value = "Update jugador set ManoDominante = :mano where id = :id")
+	void cambiarManoJugador(@Param("id")int id, @Param("mano") String manoDominante);
+
+	@Transactional
+	@Query(value = "Update jugador set Foto = :foto where id = :id")
+	void cambiarFotoJugador(@Param("id") int id, @Param("foto") String foto);
+
+	@Transactional
+	@Query(value = "Update jugador set posicion = :posicion where id = :id")
+	void cambiarPosicionJugador(@Param("id")int id, @Param("posicion")String posicion);
+
+	@Transactional
+	@Query(value = "Update jugador set dorsal = :dorsal where id = :id")
+	void cambiarDorsalJugador(@Param("id")int id, @Param("dorsal")int dorsal);
+
+	@Transactional
+	@Query(value = "Update jugador set idEquipo = :equipo where id = :id")
+	void cambiarEquipoJugador(@Param("id")int id, @Param("equipo")int id2);
 
 }

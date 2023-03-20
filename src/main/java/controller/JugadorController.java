@@ -71,10 +71,78 @@ public class JugadorController {
 		service.cApellidoJugador(jugador.getId(),jugador.getSalud());
 		final HttpHeaders httpHeaders = new HttpHeaders();
 		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
-		return new ResponseEntity<String>("{\"Respuesta\": \"La Salud del Jugador ha sido cambiado\"}", httpHeaders,
+		return new ResponseEntity<String>("{\"Respuesta\": \"La Salud del Jugador ha sido cambiada\"}", httpHeaders,
 				HttpStatus.OK);
 	}
 	
+	@PutMapping(value = "cRolJugador",produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE )
+	public ResponseEntity<String> cRolJugador(@RequestBody Jugador jugador) {
+		//return ajugador;
+		service.cRolJugador(jugador.getId(),jugador.getRol());
+		final HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+		return new ResponseEntity<String>("{\"Respuesta\": \"El Rol del Jugador ha sido cambiado\"}", httpHeaders,
+				HttpStatus.OK);
+	} 
+	
+	@PutMapping(value = "cManoJugador",produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE )
+	public ResponseEntity<String> cManoJugador(@RequestBody Jugador jugador) {
+		//return ajugador;
+		service.cManoJugador(jugador.getId(),jugador.getManoDominante());
+		final HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+		return new ResponseEntity<String>("{\"Respuesta\": \"La Mano Dominante del Jugador ha sido cambiada\"}", httpHeaders,
+				HttpStatus.OK);
+	} 
+	
+	@PutMapping(value = "cFotoJugador",produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE )
+	public ResponseEntity<String> cFotoJugador(@RequestBody Jugador jugador) {
+		//return ajugador;
+		service.cFotoJugador(jugador.getId(),jugador.getFoto());
+		final HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+		return new ResponseEntity<String>("{\"Respuesta\": \"La Foto del Jugador ha sido cambiada\"}", httpHeaders,
+				HttpStatus.OK);
+	} 
+	
+	@PutMapping(value = "cPosicionJugador",produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE )
+	public ResponseEntity<String> cPosicionJugador(@RequestBody Jugador jugador) {
+		//return ajugador;
+		service.cPosicionJugador(jugador.getId(),jugador.getPosicion());
+		final HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+		return new ResponseEntity<String>("{\"Respuesta\": \"La Posicion del Jugador ha sido cambiada\"}", httpHeaders,
+				HttpStatus.OK);
+	} 
+	@PutMapping(value = "cDorsalJugador",produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE )
+	public ResponseEntity<String> cDorsalJugador(@RequestBody Jugador jugador) {
+		//return ajugador;
+		service.cDorsalJugador(jugador.getId(),jugador.getDorsal());
+		final HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+		return new ResponseEntity<String>("{\"Respuesta\": \"La Dorsal del Jugador ha sido cambiada\"}", httpHeaders,
+				HttpStatus.OK);
+	}
+	
+	@PutMapping(value = "cAlturaJugador",produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE )
+	public ResponseEntity<String> cAlturaJugador(@RequestBody Jugador jugador) {
+		//return ajugador;
+		service.cDorsalJugador(jugador.getId(),jugador.getAltura());
+		final HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+		return new ResponseEntity<String>("{\"Respuesta\": \"La Altura del Jugador ha sido cambiada\"}", httpHeaders,
+				HttpStatus.OK);
+	}
+	
+	@PutMapping(value = "cEquipoJugador",produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE )
+	public ResponseEntity<String> cEquipoJugador(@RequestBody Jugador jugador) {
+		//return ajugador;
+		service.cEquipoJugador(jugador.getId(),jugador.getEquipo().getId());
+		final HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+		return new ResponseEntity<String>("{\"Respuesta\": \"El Equipo del Jugador ha sido cambiado\"}", httpHeaders,
+				HttpStatus.OK);
+	}
 	
 	
 	

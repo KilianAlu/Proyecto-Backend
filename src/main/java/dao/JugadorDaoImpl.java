@@ -13,7 +13,7 @@ import model.Jugador;
 @Repository
 public class JugadorDaoImpl implements JugadorDao{
 	@Autowired
-	JugadorJpaSpring Jpa;
+	JugadorJpaSpring jpa;
 	@PersistenceContext
 	private EntityManager entityManager;
 	
@@ -39,26 +39,64 @@ public class JugadorDaoImpl implements JugadorDao{
 	@Override
 	public List<Jugador> getJugadores(int idEquipo) {
 		// TODO Auto-generated method stub
-		return Jpa.getJugadores(idEquipo);
+		return jpa.getJugadores(idEquipo);
 	}
 
 	@Override
 	public List<Jugador> buscarJugador(int idEquipo,String nombre) {
 		// TODO Auto-generated method stub
-		return Jpa.buscarJugador(idEquipo,nombre);
+		return jpa.buscarJugador(idEquipo,nombre);
 	}
 
 	@Transactional
 	@Override
 	public void cambiarNombreJugador(int id, String nombre) {
 		// TODO Auto-generated method stub
-		Jpa.cambiarNombreJugador(id,nombre);
+		jpa.cambiarNombreJugador(id,nombre);
 	}
 
 	@Override
 	public void cambiarApellidoJugador(int id, String apellido) {
 		// TODO Auto-generated method stub
-		Jpa.cambiarApellidoJugador(id,apellido);
+		jpa.cambiarApellidoJugador(id,apellido);
 	}
+
+	@Override
+	public void cambiarRolJugador(int id, String rol) {
+		// TODO Auto-generated method stub
+		jpa.cambiarRolJugador(id, rol);
+	}
+
+	@Override
+	public void cambiarManoJugador(int id, String manoDominante) {
+		// TODO Auto-generated method stub
+		jpa.cambiarManoJugador(id, manoDominante);
+	}
+
+	@Override
+	public void cambiarFotoJugador(int id, String foto) {
+		// TODO Auto-generated method stub
+		jpa.cambiarFotoJugador(id, foto);
+	}
+
+	@Override
+	public void cambiarPosicionJugador(int id, String posicion) {
+		// TODO Auto-generated method stub
+		jpa.cambiarPosicionJugador(id, posicion);
+	}
+
+	@Override
+	public void cambiarDorsalJugador(int id, int dorsal) {
+		// TODO Auto-generated method stub
+		jpa.cambiarDorsalJugador(id, dorsal);
+	}
+
+	@Override
+	public void cambiarEquipoJugador(int id, int id2) {
+		// TODO Auto-generated method stub
+		jpa.cambiarEquipoJugador(id, id2);
+	}
+	
+	
 
 }
