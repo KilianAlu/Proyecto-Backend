@@ -19,7 +19,7 @@ public interface EquipoJpaSpring extends JpaRepository<Equipo,Integer>{
 	@Query(value = " `UPDATE` SET `Foto` = :foto  WHERE id = :id", nativeQuery = true)
 	void cambiarFoto(@Param("id")int id, @Param("foto")String foto);
 
-	@Query(value = "Select * from Equipo",nativeQuery = true)
-	List<Equipo> getEquipos();
+	@Query(value = "Select * from Equipo where idEntrenador = :id",nativeQuery = true)
+	List<Equipo> getEquipos(@Param("id")int idEntrenador);
 
 }

@@ -12,6 +12,6 @@ public interface EquipoDao {
 	void cambiarNombre(int id, String nombre);
 	void cambiarFoto(int id, String foto);
 
-	List<Equipo> getEquipos();
+	List<Equipo> getEquipos(int idEntrenador);
 
 }

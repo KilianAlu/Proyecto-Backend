@@ -2,6 +2,9 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import java.util.List;
 
 
@@ -25,6 +28,7 @@ public class Equipo implements Serializable {
 
 	//bi-directional many-to-one association to Usuario
 	@ManyToOne
+	@JsonBackReference
 	@JoinColumn(name="idEntrenador")
 	private Usuario usuario;
 

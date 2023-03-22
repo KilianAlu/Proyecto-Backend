@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -43,9 +44,9 @@ public class EquipoController {
 		return new ResponseEntity<String>("{\"Respuesta\": \"El Nombre ha sido cambiado\"}", httpHeaders,
 				HttpStatus.OK);
 	}
-	@GetMapping(value = "getEquipos", produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody List<Equipo> getEquipos(){
-		return service.getEquipos();
+	@GetMapping(value = "getEquipos/{idEntrenador}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody List<Equipo> getEquipos(@PathVariable int idEntrenador){
+		return service.getEquipos(idEntrenador);
 	}
 	
 	

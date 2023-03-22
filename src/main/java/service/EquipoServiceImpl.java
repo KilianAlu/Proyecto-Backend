@@ -34,9 +34,9 @@ public class EquipoServiceImpl implements EquipoService{
 	}
 
 	@Override
-	public List<Equipo> getEquipos() {
+	public List<Equipo> getEquipos(int idEntrenador) {
 		// TODO Auto-generated method stub
-		return dao.getEquipos();
+		return dao.getEquipos(idEntrenador);
 	}
 
 }

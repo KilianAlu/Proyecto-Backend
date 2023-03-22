@@ -45,9 +45,9 @@ public class EquipoDaoImpl implements EquipoDao{
 	}
 
 	@Override
-	public List<Equipo> getEquipos() {
+	public List<Equipo> getEquipos(int idEntrenador) {
 		// TODO Auto-generated method stub
-		return jpa.getEquipos();
+		return jpa.getEquipos(idEntrenador);
 	}
 
 }
