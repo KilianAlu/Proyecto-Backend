@@ -44,6 +44,14 @@ public class EquipoController {
 		return new ResponseEntity<String>("{\"Respuesta\": \"El Nombre ha sido cambiado\"}", httpHeaders,
 				HttpStatus.OK);
 	}
+	@PutMapping(value = "cFotoEquipo", produces =  MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<String> cambiarFoto(@RequestBody EquipoDto  aEquipo) {
+		service.cFoto(aEquipo.getId(),aEquipo.getFoto());
+		final HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+		return new ResponseEntity<String>("{\"Respuesta\": \"La Foto ha sido cambiado\"}", httpHeaders,
+				HttpStatus.OK);
+	}
 	@GetMapping(value = "getEquipos/{idEntrenador}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody List<Equipo> getEquipos(@PathVariable int idEntrenador){
 		return service.getEquipos(idEntrenador);

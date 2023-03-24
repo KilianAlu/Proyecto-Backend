@@ -30,7 +30,7 @@ public class EquipoServiceImpl implements EquipoService{
 	@Override
 	public void cFoto(int id, String foto) {
 		// TODO Auto-generated method stub
-		
+		dao.cambiarFoto(id, foto);
 	}
 
 	@Override

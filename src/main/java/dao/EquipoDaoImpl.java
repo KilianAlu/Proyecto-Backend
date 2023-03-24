@@ -31,13 +31,13 @@ public class EquipoDaoImpl implements EquipoDao{
 		.setParameter(3,"http://10.0.2.2/php/usuario.png")
 		.executeUpdate();
 	}
-
+	@Transactional
 	@Override
 	public void cambiarNombre(int id, String nombre) {
 		// TODO Auto-generated method stub
 		jpa.cambiarNombre(id,nombre);
 	}
-
+	@Transactional
 	@Override
 	public void cambiarFoto(int id, String foto) {
 		// TODO Auto-generated method stub
