@@ -22,5 +22,6 @@ public interface UsuarioDao {
 	String cambiarContrasena(int id,String nContrasena);
 	String cambiarFoto(int id, String nFoto);
 	int comprobarContrasena(int id,String contrasena);
+	String getFoto(int id);
 	
 }

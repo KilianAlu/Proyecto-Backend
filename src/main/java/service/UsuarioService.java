@@ -22,5 +22,6 @@ public interface UsuarioService {
 	String cContrasena(int id,String nContrasena);
 	String cFoto(int id, String nFoto);
 	boolean compContrasena(int id,String contrasena);
+	String getFoto(int id);
 	
 }

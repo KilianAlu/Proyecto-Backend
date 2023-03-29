@@ -119,6 +119,12 @@ public class UsuarioDaoImpl implements UsuarioDao{
 		return Jpa.comprobarContrasena(contrasena,id);
 	}
 
+	@Override
+	public String getFoto(int id) {
+		// TODO Auto-generated method stub
+		return Jpa.getFoto(id);
+	}
+
 	
 
 }

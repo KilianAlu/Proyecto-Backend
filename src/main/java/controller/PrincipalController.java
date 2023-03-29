@@ -34,8 +34,6 @@ public class PrincipalController {
 	AboutUsService service;
 	@Autowired
 	UsuarioService usuarios;
-	@Autowired
-	JugadorService jugador;
 	/*
 	 * @GetMapping(value="AboutUs",produces=MediaType.APPLICATION_JSON_VALUE) public
 	 * String aboutUs() { return service.aboutUs();
@@ -85,6 +83,11 @@ public class PrincipalController {
 		return usuarios.login(login.getNombre(), login.getContraseña());
 
 	}
+	@PostMapping(value = "getFoto" , produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
+	public String getFoto(@RequestBody Usuario usuario){
+		return usuarios.getFoto(usuario.getId());
+	}
+	
 
 	@PostMapping(value = "exNombre", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Boolean> exNombre(@RequestBody Usuario nombreUsuario) {
