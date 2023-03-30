@@ -55,42 +55,49 @@ public class JugadorDaoImpl implements JugadorDao{
 		jpa.cambiarNombreJugador(id,nombre);
 	}
 
+	@Transactional
 	@Override
 	public void cambiarApellidoJugador(int id, String apellido) {
 		// TODO Auto-generated method stub
 		jpa.cambiarApellidoJugador(id,apellido);
 	}
 
+	@Transactional
 	@Override
 	public void cambiarRolJugador(int id, String rol) {
 		// TODO Auto-generated method stub
 		jpa.cambiarRolJugador(id, rol);
 	}
 
+	@Transactional
 	@Override
 	public void cambiarManoJugador(int id, String manoDominante) {
 		// TODO Auto-generated method stub
 		jpa.cambiarManoJugador(id, manoDominante);
 	}
 
+	@Transactional
 	@Override
 	public void cambiarFotoJugador(int id, String foto) {
 		// TODO Auto-generated method stub
 		jpa.cambiarFotoJugador(id, foto);
 	}
 
+	@Transactional
 	@Override
 	public void cambiarPosicionJugador(int id, String posicion) {
 		// TODO Auto-generated method stub
 		jpa.cambiarPosicionJugador(id, posicion);
 	}
 
+	@Transactional
 	@Override
 	public void cambiarDorsalJugador(int id, int dorsal) {
 		// TODO Auto-generated method stub
 		jpa.cambiarDorsalJugador(id, dorsal);
 	}
 
+	@Transactional
 	@Override
 	public void cambiarEquipoJugador(int id, int id2) {
 		// TODO Auto-generated method stub
