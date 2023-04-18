@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import model.Equipo;
+import model.Jugador;
 import model.dto.EquipoDto;
 import service.EquipoService;
 
@@ -36,6 +37,10 @@ public class EquipoController {
 		
 	}
 	
+	@GetMapping (value = "buscarEquipo/{idUsuario}/{nombre}" ,produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody List<Equipo> buscarEquipo(@PathVariable int idUsuario,  @PathVariable String nombre){
+		return service.buscarEquipo(idUsuario,nombre);	
+		}
 	@PutMapping(value = "cNombreEquipo", produces =  MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> cambiarEquipo(@RequestBody EquipoDto  aEquipo) {
 		service.cNombre(aEquipo.getId(),aEquipo.getNombre());

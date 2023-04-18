@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import model.Equipo;
+import model.Jugador;
 import model.dto.EquipoDto;
 
 
@@ -48,6 +49,11 @@ public class EquipoDaoImpl implements EquipoDao{
 	public List<Equipo> getEquipos(int idEntrenador) {
 		// TODO Auto-generated method stub
 		return jpa.getEquipos(idEntrenador);
+	}
+	@Override
+	public List<Equipo> buscarEquipo(int idEquipo, String nombre) {
+		// TODO Auto-generated method stub
+		return jpa.buscarEquipos(idEquipo,nombre);
 	}
 
 }

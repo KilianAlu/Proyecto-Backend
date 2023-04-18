@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import dao.EquipoDao;
 import model.Equipo;
+import model.Jugador;
 import model.dto.EquipoDto;
 
 @Service
@@ -37,6 +38,12 @@ public class EquipoServiceImpl implements EquipoService{
 	public List<Equipo> getEquipos(int idEntrenador) {
 		// TODO Auto-generated method stub
 		return dao.getEquipos(idEntrenador);
+	}
+
+	@Override
+	public List<Equipo> buscarEquipo(int idEquipo,String nombre) {
+		// TODO Auto-generated method stub
+		return dao.buscarEquipo(idEquipo,nombre);
 	}
 
 }

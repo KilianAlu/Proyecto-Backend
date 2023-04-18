@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import model.Equipo;
+import model.Jugador;
 
 public interface EquipoJpaSpring extends JpaRepository<Equipo,Integer>{
 
@@ -21,4 +22,7 @@ public interface EquipoJpaSpring extends JpaRepository<Equipo,Integer>{
 
 	@Query(value = "Select * from Equipo where idEntrenador = :id",nativeQuery = true)
 	List<Equipo> getEquipos(@Param("id")int idEntrenador);
+
+	@Query(value = "Select * FROM Equipo Where idEntrenador = :idEntrenador AND nombre LIKE %:nombre%" , nativeQuery = true)
+	List<Equipo> buscarEquipos(@Param("idEntrenador")int idEntrenador,@Param("nombre")String nombre);
 }
