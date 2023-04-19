@@ -78,5 +78,11 @@ public class JugadorServiceImpl implements JugadorService {
 		// TODO Auto-generated method stub
 		dao.cambiarEquipoJugador(id,id2);
 	}
+
+	@Override
+	public List<Jugador> buscarPosiciones(int idEquipo,String Posicion){
+		// TODO Auto-generated method stub
+		return dao.buscarPosiciones(idEquipo,Posicion);
+	}
 	
 }

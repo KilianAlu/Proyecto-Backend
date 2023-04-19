@@ -103,6 +103,13 @@ public class JugadorDaoImpl implements JugadorDao{
 		// TODO Auto-generated method stub
 		jpa.cambiarEquipoJugador(id, id2);
 	}
+
+	@Override
+	public List<Jugador> buscarPosiciones(int idEquipo, String Posicion) {
+		// TODO Auto-generated method stub
+		return jpa.buscarPosiciones(idEquipo,Posicion);
+	}
+
 	
 	
 

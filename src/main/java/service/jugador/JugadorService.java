@@ -18,4 +18,5 @@ public interface JugadorService {
 	void cPosicionJugador(int id, String posicion);
 	void cDorsalJugador(int id, int dorsal);
 	void cEquipoJugador(int id, int id2);
+	List<Jugador> buscarPosiciones(int idEquipo, String posicion);
 }

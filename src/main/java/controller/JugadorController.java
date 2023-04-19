@@ -144,6 +144,10 @@ public class JugadorController {
 				HttpStatus.OK);
 	}
 	
+	@GetMapping(value = "buscarPosicion/{idEquipo}/{posicion}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Jugador> buscarPosicion(@PathVariable int idEquipo , @PathVariable String posicion){
+		return service.buscarPosiciones(idEquipo,posicion);
+	}
 	
 	
 

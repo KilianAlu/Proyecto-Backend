@@ -52,4 +52,7 @@ public interface JugadorJpaSpring extends JpaRepository<Jugador,Integer>{
 	@Query(value = "Update jugador set idEquipo = :equipo where id = :id", nativeQuery = true)
 	void cambiarEquipoJugador(@Param("id")int id, @Param("equipo")int id2);
 
+	@Query(value = "select * From jugador where  Posicion = :posicion AND idEquipo = :idEquipo", nativeQuery = true)
+	List<Jugador> buscarPosiciones(@Param("idEquipo") int idEquipo, @Param("posicion")String posicion);
+
 }
