@@ -28,6 +28,8 @@ public interface JugadorDao {
 
 	void cambiarEquipoJugador(int id, int id2);
 
-	List<Jugador> buscarPosiciones(int idEquipo, String posicion);
+	List<Jugador> buscarPosicion(int idEquipo, String posicion);
+
+	List<String> buscarNombrePosicion(int idEquipo, String posicion);
 
 }

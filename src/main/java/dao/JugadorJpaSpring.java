@@ -16,6 +16,7 @@ public interface JugadorJpaSpring extends JpaRepository<Jugador,Integer>{
 
 	@Query(value = "Select * FROM Jugador Where idEquipo = :idEquipo", nativeQuery = true)
 	List<Jugador> getJugadores(@Param ("idEquipo") int idEquipo);
+	
 
 	@Query(value = "Select * FROM Jugador Where idEquipo = :idEquipo AND nombre LIKE %:nombre%" , nativeQuery = true)
 	List<Jugador> buscarJugador(@Param("idEquipo") int idEquipo,@Param ("nombre")String nombre);
@@ -53,6 +54,9 @@ public interface JugadorJpaSpring extends JpaRepository<Jugador,Integer>{
 	void cambiarEquipoJugador(@Param("id")int id, @Param("equipo")int id2);
 
 	@Query(value = "select * From jugador where  Posicion = :posicion AND idEquipo = :idEquipo", nativeQuery = true)
-	List<Jugador> buscarPosiciones(@Param("idEquipo") int idEquipo, @Param("posicion")String posicion);
+	List<Jugador> buscarPosicion(@Param("idEquipo") int idEquipo, @Param("posicion")String posicion);
+
+	@Query(value = "select nombre From jugador where  Posicion = :posicion AND idEquipo = :idEquipo", nativeQuery = true)
+	List<String> buscarNombrePosicion(@Param("idEquipo") int idEquipo, @Param("posicion") String posicion);
 
 }

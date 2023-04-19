@@ -80,9 +80,15 @@ public class JugadorServiceImpl implements JugadorService {
 	}
 
 	@Override
-	public List<Jugador> buscarPosiciones(int idEquipo,String Posicion){
+	public List<Jugador> buscarPosicion(int idEquipo,String Posicion){
 		// TODO Auto-generated method stub
-		return dao.buscarPosiciones(idEquipo,Posicion);
+		return dao.buscarPosicion(idEquipo,Posicion);
+	}
+
+	@Override
+	public List<String> buscarNombrePosicion(int idEquipo, String posicion) {
+		// TODO Auto-generated method stub
+		return dao.buscarNombrePosicion(idEquipo,posicion);
 	}
 	
 }

@@ -146,7 +146,12 @@ public class JugadorController {
 	
 	@GetMapping(value = "buscarPosicion/{idEquipo}/{posicion}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Jugador> buscarPosicion(@PathVariable int idEquipo , @PathVariable String posicion){
-		return service.buscarPosiciones(idEquipo,posicion);
+		return service.buscarPosicion(idEquipo,posicion);
+	}
+	
+	@GetMapping(value = "buscarNombrePosicion/{idEquipo}/{posicion}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<String> buscarNombrePosicion(@PathVariable int idEquipo , @PathVariable String posicion){
+		return service.buscarNombrePosicion(idEquipo,posicion);
 	}
 	
 	
