@@ -83,9 +83,14 @@ public class PrincipalController {
 		return usuarios.login(login.getNombre(), login.getContraseña());
 
 	}
-	@PostMapping(value = "getFoto" , produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
-	public String getFoto(@RequestBody Usuario usuario){
-		return usuarios.getFoto(usuario.getId());
+	@GetMapping(value = "getFoto/{id}" , produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<String> getFoto(@PathVariable int id){
+		final HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+		System.out.println("AAAAAAAAAAAAAAAAAAAAA" +id);
+		return new ResponseEntity<String>(
+				"{\"Respuesta\": \"" + usuarios.getFoto(id) + "\"}", httpHeaders,
+				HttpStatus.OK);
 	}
 	
 
