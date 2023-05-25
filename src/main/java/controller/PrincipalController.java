@@ -87,7 +87,6 @@ public class PrincipalController {
 	public ResponseEntity<String> getFoto(@PathVariable int id){
 		final HttpHeaders httpHeaders = new HttpHeaders();
 		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
-		System.out.println("AAAAAAAAAAAAAAAAAAAAA" +id);
 		return new ResponseEntity<String>(
 				"{\"Respuesta\": \"" + usuarios.getFoto(id) + "\"}", httpHeaders,
 				HttpStatus.OK);

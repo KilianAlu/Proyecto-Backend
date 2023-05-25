@@ -59,4 +59,8 @@ public interface JugadorJpaSpring extends JpaRepository<Jugador,Integer>{
 	@Query(value = "select nombre From jugador where  Posicion = :posicion AND idEquipo = :idEquipo", nativeQuery = true)
 	List<String> buscarNombrePosicion(@Param("idEquipo") int idEquipo, @Param("posicion") String posicion);
 
+	@Modifying
+	@Query(value = "DELETE FROM `Jugador` WHERE id = :id",nativeQuery = true)
+	void eliminarJugador(@Param("id")int idJugador);
+
 }

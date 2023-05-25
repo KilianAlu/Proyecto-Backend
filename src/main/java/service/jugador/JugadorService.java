@@ -20,4 +20,5 @@ public interface JugadorService {
 	void cEquipoJugador(int id, int id2);
 	List<Jugador> buscarPosicion(int idEquipo, String posicion);
 	List<String> buscarNombrePosicion(int idEquipo, String posicion);
+	void eliminarJugador(int idJugador);
 }

@@ -14,6 +14,7 @@ public interface EquipoService {
 	void cFoto(int id,String foto);
 	List<Equipo> getEquipos(int idEntrenador);
 	List<Equipo> buscarEquipo(int idEquipo, String nombre);
+	void eliminarEquipo(int idEquipo);
 
 
 }

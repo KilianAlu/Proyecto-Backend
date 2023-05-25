@@ -33,7 +33,7 @@ public class Equipo implements Serializable {
 	private Usuario usuario;
 
 	//bi-directional many-to-one association to Jugador
-	@OneToMany(mappedBy="equipo")
+	@OneToMany(mappedBy="equipo",orphanRemoval = true)
 	private List<Jugador> jugadors;
 
 	//bi-directional many-to-one association to Partido

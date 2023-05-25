@@ -46,4 +46,10 @@ public class EquipoServiceImpl implements EquipoService{
 		return dao.buscarEquipo(idEquipo,nombre);
 	}
 
+	@Override
+	public void eliminarEquipo(int idEquipo) {
+		// TODO Auto-generated method stub
+		dao.eliminarEquipo(idEquipo);
+	}
+
 }

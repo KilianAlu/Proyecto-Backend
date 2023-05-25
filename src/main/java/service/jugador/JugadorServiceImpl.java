@@ -14,7 +14,6 @@ public class JugadorServiceImpl implements JugadorService {
 	@Override
 	public void añadirJugador(Jugador jugador) {
 		// TODO Auto-generated method stub
-		System.out.println(jugador.getEquipo());
 		dao.añadirJugador(jugador);
 	}
 
@@ -89,6 +88,12 @@ public class JugadorServiceImpl implements JugadorService {
 	public List<String> buscarNombrePosicion(int idEquipo, String posicion) {
 		// TODO Auto-generated method stub
 		return dao.buscarNombrePosicion(idEquipo,posicion);
+	}
+
+	@Override
+	public void eliminarJugador(int idJugador) {
+		// TODO Auto-generated method stub
+		dao.eliminarJugador(idJugador);
 	}
 	
 }

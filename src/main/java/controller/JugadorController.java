@@ -7,6 +7,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -152,6 +153,15 @@ public class JugadorController {
 	@GetMapping(value = "buscarNombrePosicion/{idEquipo}/{posicion}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<String> buscarNombrePosicion(@PathVariable int idEquipo , @PathVariable String posicion){
 		return service.buscarNombrePosicion(idEquipo,posicion);
+	}
+	
+	@DeleteMapping(value = "eliminarJugador/{idJugador}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<String> eliminarJugador(@PathVariable int idJugador) {
+		service.eliminarJugador(idJugador);
+		final HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+		return new ResponseEntity<String>("{\"Respuesta\": \"El Jugador ha sido eliminado\"}", httpHeaders,
+				HttpStatus.OK);
 	}
 	
 	

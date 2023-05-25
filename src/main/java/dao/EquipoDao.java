@@ -17,4 +17,6 @@ public interface EquipoDao {
 
 	List<Equipo> buscarEquipo(int idEquipo, String nombre);
 
+	void eliminarEquipo(int idEquipo);
+
 }

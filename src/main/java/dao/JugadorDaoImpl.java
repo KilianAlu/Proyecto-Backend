@@ -116,6 +116,13 @@ public class JugadorDaoImpl implements JugadorDao{
 		return jpa.buscarNombrePosicion(idEquipo,posicion);
 	}
 
+	@Transactional
+	@Override
+	public void eliminarJugador(int idJugador) {
+		// TODO Auto-generated method stub
+		jpa.eliminarJugador(idJugador);
+	}
+
 	
 	
 

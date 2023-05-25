@@ -32,4 +32,6 @@ public interface JugadorDao {
 
 	List<String> buscarNombrePosicion(int idEquipo, String posicion);
 
+	void eliminarJugador(int idJugador);
+
 }

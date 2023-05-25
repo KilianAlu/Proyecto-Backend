@@ -55,5 +55,11 @@ public class EquipoDaoImpl implements EquipoDao{
 		// TODO Auto-generated method stub
 		return jpa.buscarEquipos(idEquipo,nombre);
 	}
+	@Transactional
+	@Override
+	public void eliminarEquipo(int idEquipo) {
+		// TODO Auto-generated method stub
+		jpa.eliminarEquipo(idEquipo);
+	}
 
 }
