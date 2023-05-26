@@ -39,7 +39,7 @@ public class Jugador implements Serializable {
 
 	private String salud;
 	
-	@ManyToOne()
+	@ManyToOne
 	@JoinColumn(name="idEquipo")
 	@JsonBackReference
 	private Equipo equipo;
