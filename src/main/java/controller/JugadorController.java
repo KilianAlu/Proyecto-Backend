@@ -160,7 +160,7 @@ public class JugadorController {
 		service.eliminarJugador(idJugador);
 		final HttpHeaders httpHeaders = new HttpHeaders();
 		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
-		return new ResponseEntity<String>("{\"Respuesta\": \"El Jugador ha sido eliminado\"}", httpHeaders,
+		return new ResponseEntity<String>("{\"Respuesta\": \"El Equipo ha sido eliminado\"}", httpHeaders,
 				HttpStatus.OK);
 	}
 	
